@@ -32,7 +32,7 @@
     font-display: swap;
     src: url(https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/woff2/PretendardVariable.woff2) format('woff2-variations');
   }
-  img { max-width:100%; display:block; }
+  img, video { max-width:100%; display:block; }
 
   /* ===== STATUS BAR ===== */
   .statusbar {
@@ -43,628 +43,332 @@
     padding: 14px 20px 10px;
   }
   .statusbar .row { display:flex; align-items:center; justify-content:space-between; }
-  .statusbar .title { font-size: 12px; font-weight:600; letter-spacing: 0.02em; color:var(--ink); }
+  .statusbar .title { font-size: 12px; font-weight:600; }
   .statusbar .meta { font-size: 10.5px; color:var(--sub); font-weight:500; }
   .progress { height:2px; background: var(--line); margin-top:10px; border-radius:2px; overflow:hidden; }
   .progress-fill { height:100%; width:0%; background: var(--accent); transition: width .15s linear; }
 
   /* ===== HERO ===== */
   .hero {
-    padding: 96px 24px 56px;
+    padding: 88px 24px 48px;
     background:
       radial-gradient(120% 80% at 100% 0%, rgba(255,59,48,0.08) 0%, transparent 50%),
       radial-gradient(80% 60% at 0% 100%, rgba(184,150,79,0.06) 0%, transparent 50%),
       var(--bg);
     border-bottom: 1px solid var(--line);
-    position: relative; overflow:hidden;
   }
   .hero .eyebrow {
     display:inline-flex; align-items:center; gap:6px;
     font-size: 10.5px; font-weight:600; letter-spacing: 0.12em;
     color: var(--accent); text-transform: uppercase;
     padding: 6px 10px; border:1px solid var(--accent); border-radius: 100px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
   .hero .eyebrow::before { content:''; width:5px; height:5px; background:var(--accent); border-radius:50%; }
   .hero h1 {
-    font-size: 32px; font-weight:800; line-height:1.18; letter-spacing:-0.025em;
-    margin-bottom: 16px;
+    font-size: 30px; font-weight:800; line-height:1.18; letter-spacing:-0.025em;
+    margin-bottom: 14px;
   }
   .hero h1 .accent { color: var(--accent); }
   .hero .lede {
-    font-size: 14.5px; color: var(--sub); line-height:1.7;
-    margin-bottom: 28px;
+    font-size: 14px; color: var(--sub); line-height:1.7;
+    margin-bottom: 24px;
   }
-
-  /* Hero image (ShopMy 公式 캡처) */
-  .hero-image-wrap {
-    margin: 28px -8px 0;
-    border-radius: 20px; overflow:hidden;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-    border: 1px solid var(--line);
-  }
-  .hero-image-wrap img { width:100%; display:block; }
-  .hero-image-cap { font-size:10.5px; color:var(--sub); margin-top:8px; text-align:center; }
-
-  /* Real screenshot frame — phone bezel style */
-  .phone-frame {
-    max-width: 320px; margin: 0 auto;
-    background: #14110f; border-radius: 32px; padding: 12px 8px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 0 0 1px #2a2622;
-  }
-  .phone-frame .phone-screen {
-    border-radius: 22px; overflow:hidden; background:#fff;
-    aspect-ratio: 9/16; position: relative;
-  }
-  .phone-frame .phone-screen img {
-    width:100%; display:block;
-  }
-  .phone-frame .phone-screen.scroll img {
-    position:absolute; top:0; left:0; width:100%;
-    animation: scrollDemo 18s ease-in-out infinite;
-  }
-  @keyframes scrollDemo {
-    0%, 8% { transform: translateY(0); }
-    32%, 42% { transform: translateY(-25%); }
-    62%, 72% { transform: translateY(-55%); }
-    88%, 100% { transform: translateY(0); }
-  }
-
-  /* Capture grid */
-  .capture-grid {
-    display:grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
-    margin-bottom: 12px;
-  }
-  .capture-cell {
-    border-radius: 14px; overflow:hidden;
-    border: 1px solid var(--line);
-    background: #fff;
-    box-shadow: var(--shadow);
-  }
-  .capture-cell img { width:100%; display:block; }
-  .capture-cell .cap-label {
-    font-size: 10px; color: var(--sub); font-weight: 600;
-    padding: 8px 10px; background: #fafaf7; border-top: 1px solid var(--line);
-    text-align:center;
-  }
-
-  .keystats { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top: 28px; }
+  .keystats { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
   .keystat {
     background: var(--card); border:1px solid var(--line);
-    padding: 14px 12px; border-radius: 14px;
+    padding: 14px 10px; border-radius: 14px; text-align: center;
   }
   .keystat .v { font-size:18px; font-weight:800; letter-spacing:-0.02em; }
-  .keystat .v .unit { font-size:11px; font-weight:600; color:var(--sub); margin-left:1px; }
-  .keystat .l { font-size:10.5px; color:var(--sub); margin-top:2px; font-weight:500; }
+  .keystat .v .unit { font-size:10.5px; font-weight:600; color:var(--sub); }
+  .keystat .l { font-size:10px; color:var(--sub); margin-top:2px; font-weight:500; }
+
+  /* ===== TOC ===== */
+  .toc {
+    padding: 28px 24px;
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+  }
+  .toc-title { font-size:10px; font-weight:800; letter-spacing:0.18em; color:var(--sub); text-transform:uppercase; margin-bottom:14px; }
+  .toc-list { display:flex; flex-direction:column; gap:8px; }
+  .toc-item {
+    display:flex; align-items:center; gap:10px;
+    padding: 10px 12px; border:1px solid var(--line);
+    border-radius: 10px; text-decoration:none; color: var(--ink);
+  }
+  .toc-num {
+    width:24px; height:24px; border-radius:50%;
+    background: var(--accent); color:#fff;
+    font-size: 11px; font-weight: 800;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink: 0;
+  }
+  .toc-text { font-size: 12.5px; font-weight: 700; flex: 1; }
 
   /* ===== SECTION COMMON ===== */
-  section { padding: 56px 24px; border-bottom:1px solid var(--line); }
+  section { padding: 56px 24px; border-bottom:1px solid var(--line); scroll-margin-top: 64px; }
   .section-tag {
-    display:inline-block; font-size:10px; font-weight:700; letter-spacing:0.18em;
-    color: var(--sub); text-transform: uppercase; margin-bottom: 12px;
+    display:inline-block; font-size:10px; font-weight:800; letter-spacing:0.18em;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 8px;
+  }
+  .section-num {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:30px; height:30px; border-radius: 8px;
+    background: var(--accent); color:#fff;
+    font-size: 13px; font-weight: 800;
+    margin-right: 10px; vertical-align: middle;
   }
   .section-title {
     font-size: 22px; font-weight:800; line-height:1.25; letter-spacing:-0.02em;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
-  .section-sub { font-size: 13.5px; color: var(--sub); margin-bottom: 28px; line-height:1.65; }
+  .section-sub { font-size: 13px; color: var(--sub); margin-bottom: 28px; line-height:1.65; }
+  .src-cap { font-size:10.5px; color:var(--sub); margin-top:10px; text-align:center; line-height:1.55; }
 
-  /* ===== BRAND PARTNERS STRIP ===== */
-  .logo-strip {
-    background: var(--card); border:1px solid var(--line); border-radius: 16px;
-    padding: 20px 16px;
-  }
-  .logo-strip-title { font-size:10.5px; color:var(--sub); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; margin-bottom: 16px; text-align:center; }
-  .logo-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items:center; }
-  .logo-cell {
-    display:flex; align-items:center; justify-content:center;
-    aspect-ratio: 2.5/1;
-    background: #fafaf7; border-radius: 10px;
-    padding: 12px;
-    overflow: hidden;
-  }
-  .logo-cell img {
-    max-height: 36px; max-width: 100%; object-fit:contain;
-    filter: grayscale(0.4); opacity: 0.85;
-    transition: filter .3s, opacity .3s;
-  }
-  .logo-cell:hover img { filter: grayscale(0); opacity: 1; }
-  .logo-cell .fallback { font-size:11px; font-weight:700; color:#888; letter-spacing: 0.05em; text-transform: uppercase; }
-
-  /* ===== CIRCLES UI VISUAL ===== */
-  .circles-stage {
-    position: relative; height: 320px;
-    background:
-      radial-gradient(circle at 50% 50%, rgba(255,59,48,0.05) 0%, transparent 60%),
-      var(--card);
-    border:1px solid var(--line); border-radius: 20px;
-    overflow:hidden; margin-bottom: 16px;
-  }
-  .circle-orbit {
-    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-    border:1px dashed rgba(0,0,0,0.08); border-radius:50%;
-    animation: spin 24s linear infinite;
-  }
-  .circle-orbit.o1 { width:240px; height:240px; }
-  .circle-orbit.o2 { width:160px; height:160px; animation-direction: reverse; animation-duration: 18s; }
-  .center-circle {
-    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-    width:84px; height:84px; border-radius:50%;
-    background: var(--accent); color:white;
-    display:flex; align-items:center; justify-content:center;
-    font-size:13px; font-weight:800; letter-spacing:-0.02em;
-    box-shadow: 0 8px 32px rgba(255,59,48,0.35);
-  }
-  .satellite {
-    position:absolute; width:44px; height:44px; border-radius:50%;
-    background: var(--card); border:1px solid var(--line);
-    display:flex; align-items:center; justify-content:center;
-    font-size:10px; font-weight:700; color:var(--ink);
-    box-shadow: var(--shadow);
-  }
-  .s1 { top:24%; left:18%; }
-  .s2 { top:18%; right:22%; }
-  .s3 { top:55%; right:12%; }
-  .s4 { bottom:18%; left:32%; }
-  .s5 { bottom:24%; right:34%; }
-  .s6 { top:50%; left:8%; }
-  @keyframes spin { from{transform:translate(-50%,-50%) rotate(0)} to{transform:translate(-50%,-50%) rotate(360deg)} }
-  .circles-cap {
-    font-size:11px; color:var(--sub); text-align:center; margin-top:4px;
-  }
-
-  /* Live web preview frame */
-  .web-preview {
-    margin-top: 24px;
-    border: 1px solid var(--line); border-radius: 16px; overflow:hidden;
-    background: var(--card);
-    box-shadow: var(--shadow);
-  }
-  .web-preview .browser-bar {
-    display:flex; align-items:center; gap:6px;
-    padding: 10px 14px; background: #f2efe9; border-bottom: 1px solid var(--line);
-  }
-  .web-preview .dot { width:9px; height:9px; border-radius:50%; }
-  .web-preview .dot.r { background:#ff5f56; }
-  .web-preview .dot.y { background:#ffbd2e; }
-  .web-preview .dot.g { background:#27c93f; }
-  .web-preview .url {
-    flex:1; margin-left:10px; font-size:10.5px; color:var(--sub);
-    background:#fff; padding:4px 10px; border-radius:6px;
-    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
-  }
-  .web-preview .ss-img {
-    width:100%; aspect-ratio: 16/10;
-    background: linear-gradient(180deg, #fafaf7, #f2efe9);
-    background-image: url('https://static.shopmy.us/uploads/02990d23-d962-43ab-a4ac-980eb2207c03_App_GTM_Blog.png');
-    background-size: cover; background-position: center;
-  }
-
-  /* ===== VIDEO EMBED ===== */
-  .video-wrap {
-    position: relative; width:100%; aspect-ratio: 16/9;
-    background: #0e0e0e; border-radius: 16px; overflow:hidden;
-    box-shadow: var(--shadow);
-  }
-  .video-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
-  .video-placeholder {
-    position:absolute; inset:0; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; color:#fff; gap:12px;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a1a1a 100%);
-  }
-  .play-icon {
-    width:64px; height:64px; border-radius:50%;
-    background: var(--accent);
-    display:flex; align-items:center; justify-content:center;
-    box-shadow: 0 8px 32px rgba(255,59,48,0.5);
-  }
-  .play-icon svg { width:22px; height:22px; fill:#fff; margin-left:3px; }
-  .video-placeholder .vt { font-size:13px; font-weight:700; }
-  .video-placeholder .vs { font-size:11px; opacity:0.6; }
-  .video-cap { font-size:11px; color:var(--sub); margin-top:10px; text-align:center; }
-
-  /* ===== CREATORS SHOWCASE ===== */
-  .creator-grid {
-    display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;
-  }
-  .creator-card {
-    background: var(--card); border:1px solid var(--line);
-    border-radius: 14px; padding: 16px 12px;
-    display:flex; flex-direction:column; align-items:center; gap:8px;
-    transition: transform .25s, box-shadow .25s;
-  }
-  .creator-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-  .creator-avatar {
-    width: 56px; height: 56px; border-radius: 50%;
-    display:flex; align-items:center; justify-content:center;
-    font-size: 18px; font-weight: 800; color: #fff;
-    letter-spacing: -0.02em;
+  /* ===== PHONE FRAME (auto-play video / scroll) ===== */
+  .phone-frame {
+    max-width: 320px; margin: 0 auto;
+    background: #14110f; border-radius: 36px; padding: 12px 8px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.18), 0 0 0 1px #2a2622;
     position: relative;
   }
-  .creator-avatar.verified::after {
-    content: '✓'; position:absolute; bottom:-2px; right:-2px;
-    width:18px; height:18px; border-radius:50%;
-    background: #1d9bf0; color:#fff; font-size:10px; font-weight:800;
-    display:flex; align-items:center; justify-content:center;
-    border:2px solid #fff;
+  .phone-frame::before {
+    content:''; position:absolute; top:18px; left:50%; transform:translateX(-50%);
+    width: 90px; height: 26px; border-radius: 14px; background: #14110f;
+    z-index: 5;
   }
-  .ca-1 { background: linear-gradient(135deg, #FF3B30, #ff8a82); }
-  .ca-2 { background: linear-gradient(135deg, #B8964F, #d4b876); }
-  .ca-3 { background: linear-gradient(135deg, #2c2c2c, #555); }
-  .ca-4 { background: linear-gradient(135deg, #5b3c2e, #8b6f5e); }
-  .ca-5 { background: linear-gradient(135deg, #7c4a4a, #a87878); }
-  .ca-6 { background: linear-gradient(135deg, #355c46, #5d8d70); }
-  .ca-7 { background: linear-gradient(135deg, #2e4a7c, #5e7ba8); }
-  .ca-8 { background: linear-gradient(135deg, #7c2e5b, #a85e87); }
-  .creator-name { font-size: 12.5px; font-weight: 700; text-align:center; }
-  .creator-cat { font-size: 10px; color: var(--sub); text-align:center; line-height:1.4; }
-  .creator-tag {
-    font-size: 9.5px; font-weight: 700; padding: 2px 6px;
-    background: var(--accent-soft); color: var(--accent);
-    border-radius: 4px; margin-top: 2px;
+  .phone-screen {
+    border-radius: 24px; overflow:hidden; background:#fff;
+    aspect-ratio: 9/19.5; position: relative;
   }
-  .creator-tag.expert { background:#e7f0e7; color:#355c46; }
-  .creator-tag.micro { background:#fef3e7; color:#8a5a1f; }
+  .phone-screen video {
+    width:100%; height:100%; object-fit: cover; display:block;
+  }
+  .phone-screen.scroll img {
+    position:absolute; top:0; left:0; width:100%;
+    animation: scrollDemo 22s ease-in-out infinite;
+  }
+  @keyframes scrollDemo {
+    0%, 6% { transform: translateY(0); }
+    28%, 36% { transform: translateY(-25%); }
+    58%, 66% { transform: translateY(-55%); }
+    88%, 100% { transform: translateY(0); }
+  }
 
-  /* ===== SECTION DIVIDER (양면 시장 구조) ===== */
-  .market-side {
-    display:flex; align-items:center; gap:10px;
-    padding: 32px 24px 0; margin-top: -20px;
+  /* Live indicator on phone */
+  .live-tag {
+    position: absolute; top: 24px; left: 50%; transform: translateX(-50%);
+    z-index: 10;
+    background: rgba(255,59,48,0.94); color: #fff;
+    font-size: 10px; font-weight: 800;
+    padding: 4px 10px; border-radius: 100px;
+    display: inline-flex; align-items: center; gap: 5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
-  .market-side .ms-tag {
-    font-size:10px; font-weight:800; letter-spacing:0.18em;
-    color:#fff; text-transform:uppercase;
-    padding: 5px 10px; border-radius: 100px;
+  .live-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: #fff;
+    animation: pulse 1.4s ease-in-out infinite;
   }
-  .market-side .ms-tag.consumer { background: #2e4a7c; }
-  .market-side .ms-tag.supplier { background: #5b3c2e; }
-  .market-side .ms-line { flex:1; height:1px; background: var(--line); }
-  .market-side .ms-label { font-size: 11px; color: var(--sub); font-weight: 600; }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
 
-  /* ===== SOCIAL PROOF UI MOCKUP ===== */
-  .product-mock {
+  /* ===== CATEGORY SLIDESHOW (auto-cycle) ===== */
+  .cat-stage {
+    position: relative;
+    aspect-ratio: 9/19.5;
+    background: #fff;
+    border-radius: 24px; overflow:hidden;
+  }
+  .cat-slide {
+    position:absolute; inset:0; opacity: 0;
+    animation: catCycle 16s linear infinite;
+  }
+  .cat-slide img { width:100%; height:100%; object-fit: cover; display:block; }
+  .cat-slide.c1 { animation-delay: 0s; }
+  .cat-slide.c2 { animation-delay: 4s; }
+  .cat-slide.c3 { animation-delay: 8s; }
+  .cat-slide.c4 { animation-delay: 12s; }
+  @keyframes catCycle {
+    0%, 22% { opacity: 1; }
+    25%, 100% { opacity: 0; }
+  }
+  .cat-label {
+    position:absolute; top: 60px; left: 50%; transform: translateX(-50%);
+    z-index: 10;
+    background: rgba(20,17,15,0.88); color: #fff;
+    font-size: 11px; font-weight: 700;
+    padding: 6px 14px; border-radius: 100px;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(8px);
+  }
+  .cat-bars {
+    position: absolute; bottom: 18px; left: 16px; right: 16px;
+    z-index: 10; display: flex; gap: 4px;
+  }
+  .cat-bar {
+    flex: 1; height: 3px; background: rgba(255,255,255,0.35);
+    border-radius: 2px; overflow: hidden; position: relative;
+  }
+  .cat-bar::after {
+    content:''; position:absolute; inset:0; background:#fff;
+    transform-origin: left; animation: barFill 16s linear infinite;
+  }
+  .cat-bar.b1::after { animation-delay: 0s; }
+  .cat-bar.b2::after { animation-delay: 4s; }
+  .cat-bar.b3::after { animation-delay: 8s; }
+  .cat-bar.b4::after { animation-delay: 12s; }
+  @keyframes barFill {
+    0% { transform: scaleX(0); }
+    25% { transform: scaleX(1); }
+    25.01%, 100% { transform: scaleX(0); }
+  }
+
+  /* ===== BRAND MARQUEE ===== */
+  .brand-marquee {
+    margin-top: 16px;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
     background: var(--card); border:1px solid var(--line);
-    border-radius: 18px; overflow: hidden;
+    border-radius: 14px; padding: 16px 0;
+  }
+  .bm-track {
+    display: flex; gap: 14px;
+    animation: marquee 30s linear infinite;
+    width: max-content;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .bm-tile {
+    width: 88px; height: 50px; flex-shrink: 0;
+    background: #fafaf7; border: 1px solid var(--line);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 8px;
+  }
+  .bm-tile img { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(0.3); }
+  .bm-fb { font-size: 9px; font-weight: 800; letter-spacing: 0.06em; text-align: center; }
+
+  /* ===== MICRO-INFLUENCER PHOTO CARDS ===== */
+  .micro-row {
+    display: grid; grid-template-columns: 1fr; gap: 14px;
+    margin-top: 10px;
+  }
+  .micro-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 16px; overflow:hidden;
     box-shadow: var(--shadow);
   }
-  .product-mock .pm-image {
-    aspect-ratio: 1/1; background:
-      linear-gradient(135deg, #f4ebe2 0%, #e8d8c8 100%);
-    position: relative; display:flex; align-items:center; justify-content:center;
+  .micro-card img { width:100%; aspect-ratio: 16/10; object-fit: cover; display:block; }
+  .micro-info { padding: 16px 18px; }
+  .micro-tag {
+    display: inline-block;
+    font-size: 9.5px; font-weight: 800; letter-spacing: 0.16em;
+    color: #fff; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 4px; margin-bottom: 8px;
   }
-  .product-mock .pm-image::before {
-    content:''; width: 70%; height: 70%;
-    background: rgba(0,0,0,0.05); border-radius: 16px;
-    background-image:
-      radial-gradient(circle at 30% 30%, rgba(255,59,48,0.15) 0%, transparent 40%),
-      radial-gradient(circle at 70% 70%, rgba(184,150,79,0.15) 0%, transparent 40%);
+  .mt-living { background: #5b3c2e; }
+  .mt-beauty { background: #7c2e5b; }
+  .mt-fashion { background: #2c2c2c; }
+  .micro-name { font-size: 15px; font-weight: 800; letter-spacing: -0.015em; }
+  .micro-role { font-size: 11px; color: var(--sub); margin-top: 3px; line-height: 1.5; }
+  .micro-trust {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700; color: var(--accent);
+    margin-top: 10px;
   }
-  .product-mock .pm-tag {
-    position:absolute; top: 14px; left: 14px;
-    background: rgba(0,0,0,0.78); color:#fff;
-    font-size: 9.5px; font-weight: 700; letter-spacing: 0.06em;
-    padding: 5px 9px; border-radius: 6px; text-transform: uppercase;
+  .micro-trust::before {
+    content: '✓'; width: 16px; height: 16px; border-radius: 50%;
+    background: #1d9bf0; color: #fff; font-size: 9px; font-weight: 800;
+    display: inline-flex; align-items: center; justify-content: center;
   }
-  .product-mock .pm-info { padding: 18px 18px 22px; }
-  .product-mock .pm-brand { font-size: 10.5px; color: var(--sub); font-weight: 600; letter-spacing:0.05em; text-transform: uppercase; }
-  .product-mock .pm-name { font-size: 15px; font-weight: 700; margin-top: 4px; margin-bottom: 12px; line-height:1.35; }
-  .product-mock .pm-price { font-size: 16px; font-weight: 800; color:var(--ink); margin-bottom: 16px; }
-  .product-mock .pm-recommend {
-    display:flex; align-items:center; gap: 8px;
-    padding: 12px 14px; background: var(--accent-soft);
-    border-radius: 10px;
-  }
-  .pm-avatars { display:flex; }
-  .pm-avatars .pm-av {
-    width: 26px; height: 26px; border-radius: 50%;
-    border: 2px solid #fff;
-    display:flex; align-items:center; justify-content:center;
-    font-size: 9px; font-weight: 800; color:#fff;
-    margin-left: -8px;
-  }
-  .pm-avatars .pm-av:first-child { margin-left: 0; }
-  .pm-avatars .pm-more {
-    background: #2c2c2c; font-size: 8.5px;
-  }
-  .pm-rec-text { font-size: 11px; font-weight: 600; color: var(--ink); flex:1; }
-  .pm-rec-text strong { color: var(--accent); font-weight: 800; }
 
-  /* ===== CREATOR DASHBOARD MOCKUP ===== */
-  .dashboard-mock {
-    background: linear-gradient(180deg, #14110f 0%, #1a1714 100%);
-    color: #f5f1e8; border-radius: 20px; overflow: hidden;
-    padding: 0; box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-  }
-  .dashboard-mock .dm-header {
-    padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.08);
-    display:flex; justify-content:space-between; align-items:center;
-  }
-  .dm-header .dm-title { font-size: 12px; font-weight: 700; letter-spacing: -0.01em; }
-  .dm-header .dm-period { font-size: 10px; color: rgba(245,241,232,0.55); font-weight: 600; }
-  .dm-stats { display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: rgba(255,255,255,0.06); }
-  .dm-stat { background: #14110f; padding: 16px 12px; }
-  .dm-stat .dm-label { font-size: 9px; color: rgba(245,241,232,0.55); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
-  .dm-stat .dm-value { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
-  .dm-stat .dm-delta { font-size: 9.5px; margin-top: 3px; font-weight: 700; }
-  .dm-stat .dm-delta.up { color: #34c759; }
-  .dm-chart-wrap { padding: 18px 20px; }
-  .dm-chart-title { font-size: 11px; font-weight: 700; color: rgba(245,241,232,0.85); margin-bottom: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
-  .dm-chart {
-    height: 100px; position: relative;
-    display:flex; align-items: flex-end; gap: 4px;
-  }
-  .dm-chart .dmc-bar {
-    flex: 1; background: linear-gradient(180deg, var(--accent) 0%, rgba(255,59,48,0.2) 100%);
-    border-radius: 3px 3px 0 0; transition: height 1.2s ease-out; height: 0;
-    min-height: 4px;
-  }
-  .dm-chart .dmc-bar.peak { background: linear-gradient(180deg, #ffb84a 0%, rgba(255,184,74,0.2) 100%); }
-  .dm-chart-labels { display:flex; justify-content:space-between; margin-top: 8px; padding: 0 2px; }
-  .dm-chart-labels span { font-size: 9px; color: rgba(245,241,232,0.4); font-weight: 600; }
-  .dm-products {
-    padding: 0 20px 20px; display:flex; flex-direction:column; gap: 8px;
-  }
-  .dm-products .dm-row {
-    display:flex; align-items:center; gap: 10px;
-    padding: 10px 12px; background: rgba(255,255,255,0.04); border-radius: 10px;
-  }
-  .dm-row .dmr-icon {
-    width: 32px; height: 32px; border-radius: 8px;
-    background: linear-gradient(135deg, #f4ebe2, #e8d8c8);
-    flex-shrink: 0;
-  }
-  .dm-row .dmr-info { flex: 1; }
-  .dm-row .dmr-name { font-size: 11px; font-weight: 700; }
-  .dm-row .dmr-meta { font-size: 9.5px; color: rgba(245,241,232,0.5); margin-top: 2px; }
-  .dm-row .dmr-amount { font-size: 12px; font-weight: 800; color: var(--accent); }
-
-  /* ===== BM 3-STEP ===== */
-  .bm-cards { display:flex; flex-direction:column; gap:14px; }
-  .bm-card {
+  /* ===== MATCHING DIAGRAM ===== */
+  .match-stage {
     background: var(--card); border:1px solid var(--line);
-    border-radius: 18px; padding: 22px 20px;
-    box-shadow: var(--shadow); position:relative;
-    overflow:hidden;
+    border-radius: 18px; padding: 28px 18px;
+    box-shadow: var(--shadow);
   }
-  .bm-card::before {
-    content:''; position:absolute; top:0; left:0; bottom:0; width:4px;
-    background: var(--accent);
+  .match-flow {
+    display:grid; grid-template-columns: 1fr auto 1fr;
+    gap: 14px; align-items: center;
   }
-  .bm-card .step {
-    display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  .match-col {
+    display: flex; flex-direction: column; gap: 8px;
+    padding: 12px 8px; background: #fafaf7; border-radius: 12px;
+    text-align: center;
   }
-  .bm-card .step-num {
-    width:28px; height:28px; border-radius:50%;
-    background: var(--accent); color:#fff;
-    font-size:12px; font-weight:800;
-    display:flex; align-items:center; justify-content:center;
+  .match-col .mc-label { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; color: var(--sub); text-transform: uppercase; margin-bottom: 4px; }
+  .match-col .mc-item {
+    font-size: 11px; font-weight: 700; padding: 7px 8px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 8px; line-height: 1.3;
   }
-  .bm-card .step-name { font-size:11px; font-weight:700; letter-spacing:0.18em; color:var(--sub); text-transform:uppercase; }
-  .bm-card h3 { font-size:18px; font-weight:800; letter-spacing:-0.02em; margin-bottom:8px; }
-  .bm-card p { font-size:13px; color:var(--sub); line-height:1.65; margin-bottom:14px; }
-  .bm-card .points { display:flex; flex-direction:column; gap:6px; padding-top:12px; border-top:1px solid var(--line); }
-  .bm-card .points li { list-style:none; font-size:12px; color:var(--ink); display:flex; gap:8px; align-items:flex-start; }
-  .bm-card .points li::before { content:''; flex-shrink:0; width:4px; height:4px; background:var(--accent); border-radius:50%; margin-top:7px; }
+  .match-col.brands .mc-item { color: var(--gold); border-color: var(--gold); }
+  .match-col.creators .mc-item { color: var(--accent); border-color: var(--accent); }
+  .match-arrow {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    color: var(--accent);
+  }
+  .match-arrow .ma-icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 800;
+    box-shadow: 0 4px 12px rgba(255,59,48,0.3);
+    animation: pulse-match 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse-match {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(255,59,48,0.3); }
+    50% { transform: scale(1.08); box-shadow: 0 4px 20px rgba(255,59,48,0.5); }
+  }
+  .match-arrow .ma-text {
+    font-size: 9px; font-weight: 800; color: var(--accent);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-align: center; line-height: 1.2;
+  }
+  .match-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line);
+  }
+  .match-stat {
+    text-align: center;
+  }
+  .match-stat .ms-v { font-size: 16px; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
+  .match-stat .ms-l { font-size: 9.5px; color: var(--sub); margin-top: 2px; font-weight: 600; }
 
-  /* ===== GROWTH CHART ===== */
-  .chart-wrap {
-    background: var(--card); border:1px solid var(--line);
-    border-radius: 18px; padding: 22px 20px; box-shadow: var(--shadow);
+  /* ===== DASHBOARD IMAGE ===== */
+  .dashboard-real {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; overflow: hidden;
+    box-shadow: var(--shadow);
   }
-  .chart-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 22px; }
-  .chart-head .ct { font-size: 13px; font-weight: 700; }
-  .chart-head .cl { font-size: 10.5px; color: var(--sub); }
-  .chart-bars {
-    display:grid; grid-template-columns: repeat(6, 1fr); gap: 8px;
-    height: 180px; align-items: flex-end;
-    border-bottom: 1px solid var(--line); padding-bottom: 4px; position:relative;
+  .dashboard-real img { width:100%; display:block; }
+  .dashboard-cap {
+    background: #fafaf7; padding: 12px 16px;
+    font-size: 11px; color: var(--sub); border-top: 1px solid var(--line);
+    line-height: 1.5;
   }
-  .bar-col { display:flex; flex-direction:column; align-items:center; gap:6px; }
-  .bar {
-    width: 100%; max-width: 36px; border-radius: 6px 6px 0 0;
-    background: linear-gradient(180deg, var(--accent) 0%, #ff6b62 100%);
-    transition: height 1.2s cubic-bezier(.2,.7,.2,1);
-    height: 0;
-  }
-  .bar.muted { background: linear-gradient(180deg, #d8d4cc 0%, #e6e2db 100%); }
-  .bar-val { font-size: 10px; font-weight: 700; color:var(--ink); }
-  .bar-yr { font-size: 10px; color: var(--sub); margin-top: 4px; font-weight: 600; }
-  .chart-foot { font-size:10.5px; color:var(--sub); margin-top:14px; line-height:1.55; }
-
-  /* ===== QUOTE ===== */
-  .quote {
-    background: linear-gradient(180deg, #14110f 0%, #1f1815 100%);
-    color:#f5f1e8; border-radius: 20px; padding: 36px 28px;
-    position: relative; overflow:hidden;
-  }
-  .quote::before {
-    content:'"'; position:absolute; top:-30px; left:18px;
-    font-family: Georgia, serif; font-size: 180px; line-height:1;
-    color: var(--accent); opacity: 0.18;
-  }
-  .quote .q-text {
-    font-size: 17px; font-weight:600; line-height:1.55; letter-spacing:-0.015em;
-    margin-bottom: 18px; position:relative; z-index:1;
-  }
-  .quote .q-attrib { display:flex; align-items:center; gap:10px; }
-  .quote .q-avatar {
-    width:36px; height:36px; border-radius:50%;
-    background: linear-gradient(135deg, var(--accent), #ff8a82);
-    display:flex; align-items:center; justify-content:center;
-    font-size:13px; font-weight:800; color:#fff;
-  }
-  .quote .q-name { font-size:12.5px; font-weight:700; }
-  .quote .q-role { font-size:10.5px; opacity:0.6; }
+  .dashboard-cap strong { color: var(--ink); font-weight: 700; }
 
   /* ===== FOOTER ===== */
   footer { padding: 32px 24px 56px; text-align:center; }
   footer .brand { font-size:11px; font-weight:700; letter-spacing:0.18em; color:var(--ink); }
   footer .meta { font-size:10px; color:var(--sub); margin-top:8px; line-height:1.55; }
 
-  /* ===== BACKUP SECTIONS ===== */
-  /* Case study card */
-  .case-card {
-    background: var(--card); border:1px solid var(--line);
-    border-radius: 18px; overflow: hidden;
-    box-shadow: var(--shadow);
-  }
-  .case-card .cc-header {
-    display:flex; align-items:center; gap: 12px;
-    padding: 18px 20px; border-bottom: 1px solid var(--line);
-    background: linear-gradient(180deg, #fafaf7 0%, #fff 100%);
-  }
-  .cc-avatar {
-    width: 48px; height: 48px; border-radius: 50%;
-    background: linear-gradient(135deg, #5b3c2e, #8b6f5e);
-    display:flex; align-items:center; justify-content:center;
-    font-size: 14px; font-weight: 800; color:#fff; flex-shrink:0;
-    position: relative;
-  }
-  .cc-avatar.verified::after {
-    content: '✓'; position:absolute; bottom:-2px; right:-2px;
-    width:18px; height:18px; border-radius:50%;
-    background: #1d9bf0; color:#fff; font-size:10px; font-weight:800;
-    display:flex; align-items:center; justify-content:center;
-    border:2px solid #fff;
-  }
-  .cc-meta { flex: 1; }
-  .cc-name { font-size: 14px; font-weight: 800; letter-spacing: -0.01em; }
-  .cc-role { font-size: 11px; color: var(--sub); margin-top: 2px; }
-  .cc-tag {
-    display:inline-block; font-size: 9.5px; font-weight: 700;
-    padding: 3px 7px; background: var(--accent-soft); color: var(--accent);
-    border-radius: 4px; margin-top: 4px;
-  }
-  .cc-body { padding: 20px; }
-  .cc-metrics { display:grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
-  .cc-metric {
-    background: #fafaf7; border-radius: 10px; padding: 12px 8px;
-    text-align: center;
-  }
-  .cc-metric .ccm-v { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); }
-  .cc-metric .ccm-l { font-size: 9.5px; color: var(--sub); margin-top: 3px; font-weight: 600; }
-  .cc-products { display:flex; flex-direction:column; gap: 8px; }
-  .cc-prod {
-    display:flex; gap: 10px; align-items:center;
-    padding: 10px 12px; background: #fafaf7; border-radius: 10px;
-  }
-  .cc-prod-img {
-    width: 40px; height: 40px; border-radius: 8px;
-    background: linear-gradient(135deg, #d8c8b8, #a89888);
-    flex-shrink: 0;
-  }
-  .cc-prod.h2 .cc-prod-img { background: linear-gradient(135deg, #c8b8a8, #988878); }
-  .cc-prod.h3 .cc-prod-img { background: linear-gradient(135deg, #b8a898, #887868); }
-  .cc-prod-info { flex:1; }
-  .cc-prod-name { font-size: 11.5px; font-weight: 700; }
-  .cc-prod-meta { font-size: 9.5px; color: var(--sub); margin-top: 2px; }
-  .cc-prod-price { font-size: 12px; font-weight: 800; }
-
-  /* Luxury brand grid (2nd backup) */
-  .lux-grid {
-    display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
-    margin-top: 16px;
-  }
-  .lux-cell {
-    aspect-ratio: 1.6/1; background: var(--card);
-    border: 1px solid var(--line); border-radius: 12px;
-    display:flex; align-items:center; justify-content:center;
-    padding: 14px; overflow:hidden;
-    transition: transform .25s, box-shadow .25s;
-  }
-  .lux-cell:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-  .lux-cell img {
-    max-width: 100%; max-height: 100%;
-    filter: grayscale(0.3); opacity: 0.92;
-    object-fit: contain;
-  }
-  .lux-cell .fb-text {
-    font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em;
-    text-align: center; color: #444;
-  }
-  .lux-tier-tag {
-    display:inline-block;
-    font-size: 9px; font-weight: 800; letter-spacing: 0.12em;
-    padding: 3px 7px; border-radius: 4px;
-    text-transform: uppercase;
-  }
-  .lux-tier-tag.luxury { background: #14110f; color: #d4b876; }
-  .lux-tier-tag.premium { background: #5b3c2e; color: #fff; }
-  .lux-tier-tag.contemporary { background: #2c2c2c; color: #fff; }
-
-  /* Pie + Line chart for category data */
-  .data-row { display:grid; grid-template-columns: 1fr; gap: 14px; margin-top: 16px; }
-  .data-card {
-    background: var(--card); border:1px solid var(--line);
-    border-radius: 14px; padding: 18px 16px;
-    box-shadow: var(--shadow);
-  }
-  .data-card .dc-title { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
-  .data-card .dc-sub { font-size: 10.5px; color: var(--sub); margin-bottom: 14px; }
-
-  .pie-wrap { display:flex; align-items:center; gap: 16px; }
-  .pie {
-    width: 130px; height: 130px; border-radius: 50%;
-    flex-shrink: 0; position: relative;
-    background: conic-gradient(
-      #FF3B30 0% 32%,
-      #B8964F 32% 56%,
-      #5b3c2e 56% 74%,
-      #355c46 74% 87%,
-      #2e4a7c 87% 96%,
-      #7c2e5b 96% 100%
-    );
-  }
-  .pie::after {
-    content: ''; position: absolute; inset: 26%;
-    background: var(--card); border-radius: 50%;
-  }
-  .pie-center {
-    position: absolute; inset: 0;
-    display:flex; align-items:center; justify-content:center;
-    flex-direction: column; text-align: center;
-    z-index: 2;
-  }
-  .pie-center .pcv { font-size: 13px; font-weight: 800; }
-  .pie-center .pcl { font-size: 8.5px; color: var(--sub); margin-top: 2px; }
-  .pie-legend { flex: 1; display:flex; flex-direction:column; gap: 6px; }
-  .pie-legend-item { display:flex; align-items:center; gap: 8px; font-size: 10.5px; }
-  .pie-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
-  .pie-name { flex: 1; font-weight: 600; }
-  .pie-pct { font-size: 10px; font-weight: 800; color: var(--ink); }
-
-  /* Line chart */
-  .line-chart {
-    height: 160px; position: relative;
-    border-bottom: 1px solid var(--line);
-    border-left: 1px solid var(--line);
-    margin: 8px 0 12px;
-  }
-  .line-svg { width: 100%; height: 100%; overflow: visible; }
-  .line-points { display:grid; grid-template-columns: repeat(5, 1fr); margin-top: 4px; }
-  .line-points span { font-size: 9.5px; color: var(--sub); text-align: center; font-weight: 600; }
-  .line-legend { display:flex; gap: 16px; margin-top: 10px; font-size: 10px; }
-  .line-legend-item { display:flex; align-items:center; gap: 6px; }
-  .line-leg-color { width: 14px; height: 3px; border-radius: 2px; }
-
-  /* ===== FADE-IN ANIMATION ===== */
+  /* ===== FADE-IN ===== */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
   .reveal.in { opacity:1; transform: translateY(0); }
-  .reveal-stagger > * { opacity:0; transform: translateY(18px); transition: opacity .7s ease-out, transform .7s ease-out; }
-  .reveal-stagger.in > * { opacity:1; transform: translateY(0); }
-  .reveal-stagger.in > *:nth-child(1) { transition-delay: .05s; }
-  .reveal-stagger.in > *:nth-child(2) { transition-delay: .15s; }
-  .reveal-stagger.in > *:nth-child(3) { transition-delay: .25s; }
-  .reveal-stagger.in > *:nth-child(4) { transition-delay: .35s; }
-  .reveal-stagger.in > *:nth-child(5) { transition-delay: .45s; }
-  .reveal-stagger.in > *:nth-child(6) { transition-delay: .55s; }
 </style>
 </head>
 <body>
 
-<!-- ========================================== -->
-<!-- STATUS BAR -->
-<!-- ========================================== -->
+<!-- ================= STATUS BAR ================= -->
 <div class="statusbar">
   <div class="row">
     <div class="title">ShopMy 핵심 경쟁력 리포트</div>
@@ -673,896 +377,299 @@
   <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
 </div>
 
-<!-- ========================================== -->
-<!-- HERO -->
-<!-- ========================================== -->
-<section class="hero">
-  <div class="eyebrow">Executive Brief · 1 min read</div>
+<!-- ================= HERO ================= -->
+<section class="hero" style="border-bottom:none;">
+  <div class="eyebrow">Executive Brief · QR Access</div>
   <h1 class="reveal">
-    인플루언서를<br>
-    <span class="accent">자산화</span>하는<br>
-    크리에이터 어필리에이트
+    인플루언서 어필리에이트 +<br>
+    <span class="accent">Curated Commerce</span>
   </h1>
   <p class="lede reveal">
     '20년 NY 창업 5년만에 GMV $1B·기업가치 $1.5B 유니콘.<br>
-    Lululemon·Dior·Nordstrom 등 premium 1,200+ 브랜드를<br>
-    18.5만 인플루언서와 매칭하는 Curated Commerce Infrastructure
+    Lululemon·Dior·Nordstrom 등 premium 1,200+ brand를 18.5만 인플루언서와 직결시키는 인프라
   </p>
-
-  <!-- Hero image: ShopMy 公式 홈페이지 실제 캡처 -->
-  <div class="hero-image-wrap reveal">
-    <img src="images/mobile_home_top.jpg" alt="ShopMy Homepage - Curated by the obsessed, not the algorithm" loading="lazy">
-  </div>
-  <p class="hero-image-cap">"Curated by the obsessed, not the algorithm" · ShopMy 公式 홈 (shopmy.us · 2026.04.29 캡처)</p>
-
-  <div class="keystats reveal-stagger">
+  <div class="keystats reveal">
     <div class="keystat"><div class="v">$1B<span class="unit"> GMV</span></div><div class="l">'25 연간</div></div>
     <div class="keystat"><div class="v">$1.5B<span class="unit"> Val</span></div><div class="l">'25.10 Series C</div></div>
-    <div class="keystat"><div class="v">+196<span class="unit">% YoY</span></div><div class="l">'25 매출 성장</div></div>
+    <div class="keystat"><div class="v">+196<span class="unit">% YoY</span></div><div class="l">매출 성장</div></div>
   </div>
 </section>
 
-<!-- ========================================== -->
-<!-- BRAND PARTNERS LOGO STRIP -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">Brand Partners</div>
-  <h2 class="section-title reveal">Premium 1,200+ 브랜드 입점</h2>
-  <p class="section-sub reveal">
-    Mass-market 어필리에이트(LTK·Amazon)와 차별 — Luxury·Premium·DTC 브랜드 집중 큐레이션
-  </p>
-
-  <div class="logo-strip reveal">
-    <div class="logo-strip-title">대표 브랜드 파트너</div>
-    <div class="logo-grid">
-      <div class="logo-cell"><img src="https://logo.clearbit.com/lululemon.com" onerror="this.outerHTML='<div class=fallback>LULULEMON</div>'" alt="Lululemon"></div>
-      <div class="logo-cell"><img src="https://logo.clearbit.com/dior.com" onerror="this.outerHTML='<div class=fallback>DIOR</div>'" alt="Dior"></div>
-      <div class="logo-cell"><img src="https://logo.clearbit.com/nordstrom.com" onerror="this.outerHTML='<div class=fallback>NORDSTROM</div>'" alt="Nordstrom"></div>
-      <div class="logo-cell"><img src="https://logo.clearbit.com/sephora.com" onerror="this.outerHTML='<div class=fallback>SEPHORA</div>'" alt="Sephora"></div>
-      <div class="logo-cell"><img src="https://logo.clearbit.com/hillhousehome.com" onerror="this.outerHTML='<div class=fallback>HILL HOUSE</div>'" alt="Hill House Home"></div>
-      <div class="logo-cell"><img src="https://logo.clearbit.com/sakara.com" onerror="this.outerHTML='<div class=fallback>SAKARA</div>'" alt="Sakara"></div>
-    </div>
+<!-- ================= TOC ================= -->
+<div class="toc">
+  <div class="toc-title">목차 · 4 sections</div>
+  <div class="toc-list">
+    <a href="#s1" class="toc-item"><div class="toc-num">1</div><div class="toc-text">ShopMy 어필리에이트가 뭔지?</div></a>
+    <a href="#s2" class="toc-item"><div class="toc-num">2</div><div class="toc-text">어떤 상품을 파는지?</div></a>
+    <a href="#s3" class="toc-item"><div class="toc-num">3</div><div class="toc-text">인플루언서는 누구?</div></a>
+    <a href="#s4" class="toc-item"><div class="toc-num">4</div><div class="toc-text">인플루언서에게 무엇을 제공?</div></a>
   </div>
-
-  <div class="logo-strip reveal" style="margin-top:14px;">
-    <div class="logo-strip-title">Series A~C 투자자</div>
-    <div class="logo-grid">
-      <div class="logo-cell"><img src="https://logo.clearbit.com/bvp.com" onerror="this.outerHTML='<div class=fallback>BESSEMER</div>'" alt="Bessemer"></div>
-      <div class="logo-cell"><img src="https://logo.clearbit.com/baincapital.com" onerror="this.outerHTML='<div class=fallback>BAIN CAPITAL</div>'" alt="Bain Capital"></div>
-      <div class="logo-cell"><img src="https://logo.clearbit.com/menlovc.com" onerror="this.outerHTML='<div class=fallback>MENLO VC</div>'" alt="Menlo Ventures"></div>
-      <div class="logo-cell"><img src="https://logo.clearbit.com/inspiredcapital.com" onerror="this.outerHTML='<div class=fallback>INSPIRED</div>'" alt="Inspired Capital"></div>
-      <div class="logo-cell"><img src="https://logo.clearbit.com/avenir.com" onerror="this.outerHTML='<div class=fallback>AVENIR</div>'" alt="Avenir Growth"></div>
-      <div class="logo-cell"><img src="https://logo.clearbit.com/alleycorp.com" onerror="this.outerHTML='<div class=fallback>ALLEYCORP</div>'" alt="AlleyCorp"></div>
-    </div>
-  </div>
-  <p class="hero-image-cap">로고 출처: Clearbit Logo API · 각사 코퍼레이트</p>
-</section>
-
-<!-- ========================================== -->
-<!-- DIVIDER: 소비자 관점 -->
-<!-- ========================================== -->
-<div class="market-side reveal">
-  <span class="ms-tag consumer">소비자 관점</span>
-  <span class="ms-label">"이렇게 믿고 산다"</span>
-  <span class="ms-line"></span>
 </div>
 
-<!-- ========================================== -->
-<!-- CIRCLES UI/UX VISUAL — 실제 ShopMy 캡처 -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">UI / UX · 실제 화면</div>
-  <h2 class="section-title reveal">Shop By Circle · 큐레이션 단위</h2>
+<!-- ================= 1. AFFILIATE 정의 ================= -->
+<section id="s1">
+  <div class="section-tag">Section 01 · Definition</div>
+  <h2 class="section-title reveal">
+    <span class="section-num">1</span>ShopMy 어필리에이트가 뭔지?
+  </h2>
   <p class="section-sub reveal">
-    제품이 아닌 <strong style="color:var(--ink)">'사람(전문가)을 먼저 선택'</strong>하는 UX —
-    각 vertical(Stylists·Dermatologists·Fashionistas 등)별로 큐레이터 集團을 묶은 'Circle'을 선택하면 해당 전문가 풀의 공통 추천 상품으로 진입
+    인스타그램 콘텐츠 → 인플루언서 storefront 링크 클릭 → ShopMy 內 brand 구매 페이지 직결.
+    creator 추천 상품에 commission 자동 발생하는 <strong style="color:var(--ink)">전환 기반 commerce</strong>
   </p>
 
-  <!-- Phone frame: scrolling animation through circles_full -->
   <div class="phone-frame reveal">
+    <div class="live-tag"><span class="live-dot"></span>Live Demo</div>
+    <div class="phone-screen">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="videos/video_a_affiliate.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <p class="src-cap">
+    출처: 실제 ShopMy 인플루언서 Instagram Reel 2건 짜깁기 (10초)<br>
+    ① ShopMy 서비스 설명 (instagram.com/reel/DIeuHNOJGnO) ② 실제 활용 사례 (instagram.com/reel/DMiGtNQx_yY)
+  </p>
+</section>
+
+<!-- ================= 2. 카테고리 ================= -->
+<section id="s2">
+  <div class="section-tag">Section 02 · Catalog</div>
+  <h2 class="section-title reveal">
+    <span class="section-num">2</span>어떤 상품을 파는지?
+  </h2>
+  <p class="section-sub reveal">
+    전 카테고리 commerce — Fashion 1.7M 압도적 우위 + Beauty 211K + Home 425K + Wellness 26K.
+    luxury·premium 중심·micro 카테고리까지 <strong style="color:var(--ink)">2.6M+ 상품</strong> 큐레이션
+  </p>
+
+  <div class="phone-frame reveal">
+    <div class="live-tag"><span class="live-dot"></span>Auto-Cycle</div>
+    <div class="cat-stage">
+      <div class="cat-bars">
+        <div class="cat-bar b1"></div>
+        <div class="cat-bar b2"></div>
+        <div class="cat-bar b3"></div>
+        <div class="cat-bar b4"></div>
+      </div>
+      <div class="cat-slide c1">
+        <span class="cat-label">All · 2.6M+ items</span>
+        <img src="images/mobile_brands_top.jpg" alt="ShopMy All Categories" loading="lazy">
+      </div>
+      <div class="cat-slide c2">
+        <span class="cat-label">Fashion &amp; Accessories · 1.7M</span>
+        <img src="images/mobile_cat_fashion_top.jpg" alt="ShopMy Fashion Category" loading="lazy">
+      </div>
+      <div class="cat-slide c3">
+        <span class="cat-label">Beauty &amp; Personal Care · 211K</span>
+        <img src="images/mobile_cat_beauty_top.jpg" alt="ShopMy Beauty Category" loading="lazy">
+      </div>
+      <div class="cat-slide c4">
+        <span class="cat-label">Home &amp; Living · 425K</span>
+        <img src="images/mobile_cat_home_top.jpg" alt="ShopMy Home Category" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand marquee under categories -->
+  <div class="brand-marquee reveal">
+    <div class="bm-track">
+      <div class="bm-tile"><img src="https://logo.clearbit.com/dior.com" onerror="this.outerHTML='<span class=bm-fb>DIOR</span>'"></div>
+      <div class="bm-tile"><img src="https://logo.clearbit.com/prada.com" onerror="this.outerHTML='<span class=bm-fb>PRADA</span>'"></div>
+      <div class="bm-tile"><img src="https://logo.clearbit.com/chanel.com" onerror="this.outerHTML='<span class=bm-fb>CHANEL</span>'"></div>
+      <div class="bm-tile"><img src="https://logo.clearbit.com/lululemon.com" onerror="this.outerHTML='<span class=bm-fb>LULULEMON</span>'"></div>
+      <div class="bm-tile"><img src="https://logo.clearbit.com/nordstrom.com" onerror="this.outerHTML='<span class=bm-fb>NORDSTROM</span>'"></div>
+      <div class="bm-tile"><img src="https://logo.clearbit.com/sephora.com" onerror="this.outerHTML='<span class=bm-fb>SEPHORA</span>'"></div>
+      <div class="bm-tile"><img src="https://logo.clearbit.com/anthropologie.com" onerror="this.outerHTML='<span class=bm-fb>ANTHRO</span>'"></div>
+      <div class="bm-tile"><img src="https://logo.clearbit.com/rarebeauty.com" onerror="this.outerHTML='<span class=bm-fb>RARE BEAUTY</span>'"></div>
+      <div class="bm-tile"><img src="https://logo.clearbit.com/glossier.com" onerror="this.outerHTML='<span class=bm-fb>GLOSSIER</span>'"></div>
+      <!-- duplicate for seamless loop -->
+      <div class="bm-tile"><img src="https://logo.clearbit.com/dior.com" onerror="this.outerHTML='<span class=bm-fb>DIOR</span>'"></div>
+      <div class="bm-tile"><img src="https://logo.clearbit.com/prada.com" onerror="this.outerHTML='<span class=bm-fb>PRADA</span>'"></div>
+      <div class="bm-tile"><img src="https://logo.clearbit.com/chanel.com" onerror="this.outerHTML='<span class=bm-fb>CHANEL</span>'"></div>
+      <div class="bm-tile"><img src="https://logo.clearbit.com/lululemon.com" onerror="this.outerHTML='<span class=bm-fb>LULULEMON</span>'"></div>
+      <div class="bm-tile"><img src="https://logo.clearbit.com/nordstrom.com" onerror="this.outerHTML='<span class=bm-fb>NORDSTROM</span>'"></div>
+    </div>
+  </div>
+
+  <p class="src-cap">
+    출처: shopmy.us/shop/discover/categories · shopmy.us/brands 카테고리 nav 직접 인용 (2026.04.29 캡처)<br>
+    상품 數치는 ShopMy 公式 표기 그대로 (Fashion 1.7M·Home 425K·Beauty 211K·Health 25.9K 등)
+  </p>
+</section>
+
+<!-- ================= 3. 인플루언서 누구? ================= -->
+<section id="s3">
+  <div class="section-tag">Section 03 · Curators</div>
+  <h2 class="section-title reveal">
+    <span class="section-num">3</span>ShopMy의 인플루언서는 누구?
+  </h2>
+  <p class="section-sub reveal">
+    셀럽·메가 인플루언서 일변도 LTK와 차별 — <strong style="color:var(--ink)">vertical別 검증된 micro 전문가</strong> 집중.
+    Living·Beauty·Fashion 각 영역의 본업이 brand·자격인 큐레이터 풀
+  </p>
+
+  <!-- Phone scroll demo of curator group page -->
+  <div class="phone-frame reveal">
+    <div class="live-tag"><span class="live-dot"></span>Auto Scroll</div>
     <div class="phone-screen scroll">
-      <img src="images/mobile_circles_full.jpg" alt="ShopMy Circles Discover - Full Page">
+      <img src="images/mobile_discover2_full.jpg" alt="ShopMy Curator Group Page Scroll Demo">
     </div>
   </div>
-  <p class="circles-cap" style="margin-top:14px;">
-    실제 화면 자동 스크롤 · 출처: shopmy.us/shop/discover/circles (2026.04.29 캡처)
+  <p class="src-cap" style="margin-bottom: 22px;">
+    출처: shopmy.us/shop?Industry_id=1&amp;CuratorGroup_id=1384 (Beauty vertical curator group · 2026.04.29 캡처)
   </p>
 
-  <!-- Desktop wide capture for context -->
-  <div class="web-preview reveal" style="margin-top:24px;">
-    <div class="browser-bar">
-      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
-      <div class="url">shopmy.us/shop/discover/circles</div>
+  <!-- Real top curator profile cards by vertical -->
+  <div class="micro-row reveal">
+    <div class="micro-card">
+      <img src="images/curator_shea.jpg" alt="Shea McGee" loading="lazy">
+      <div class="micro-info">
+        <span class="micro-tag mt-living">Living · 인테리어</span>
+        <div class="micro-name">Shea McGee</div>
+        <div class="micro-role">Co-founder &amp; CCO of @studiomcgee &amp; @mcgeeandco<br>본업: Studio McGee 인테리어 디자이너</div>
+        <div class="micro-trust">Icon · Trusted by 456K shoppers</div>
+      </div>
     </div>
-    <img src="images/desktop_circles_top.jpg" alt="ShopMy Circles - Desktop View" style="width:100%; display:block;">
+    <div class="micro-card">
+      <img src="images/curator_joanna.jpg" alt="Joanna Czech" loading="lazy">
+      <div class="micro-info">
+        <span class="micro-tag mt-beauty">Beauty · 스킨케어</span>
+        <div class="micro-name">Joanna Czech</div>
+        <div class="micro-role">"35년 경력의 NY 셀럽 에스테티션 — Joanna Czech Skincare 創"<br>본업: Beverly Hills·NY 클리닉 운영 + 자체 스킨케어 brand</div>
+        <div class="micro-trust">Skincare 91 items · Trusted Curator</div>
+      </div>
+    </div>
+    <div class="micro-card">
+      <img src="images/curator_camila.jpg" alt="Camila Coelho" loading="lazy">
+      <div class="micro-info">
+        <span class="micro-tag mt-fashion">Fashion · 패션</span>
+        <div class="micro-name">Camila Coelho</div>
+        <div class="micro-role">Founder of @elaluz &amp; @camilacoelhocollection · TIME100 '25<br>본업: 패션·뷰티 brand 창업자</div>
+        <div class="micro-trust">Icon · Trusted by 8.4K shoppers</div>
+      </div>
+    </div>
   </div>
-  <p class="circles-cap" style="margin-top:8px;">
-    Desktop view: "Stylists" Circle 선택 시 해당 vertical 전문가 큐레이션 일괄 노출
+  <p class="src-cap">
+    출처: shopmy.us/sheamcgee · /joannaczech · /camilacoelho 公式 프로필 (2026.04.29 캡처)<br>
+    "Trusted by N shoppers" 數치는 ShopMy 公式 표기 그대로 인용
   </p>
-
-  <!-- Conceptual diagram — kept as secondary -->
-  <div style="margin-top:32px;">
-    <div class="section-tag" style="margin-bottom:8px;">Concept Diagram</div>
-    <p class="section-sub" style="margin-bottom:14px; font-size:12px;">위 실제 UI를 도식화 — Brand·Creator·Shopper 3者를 큐레이션 layer가 결합</p>
-    <div class="circles-stage reveal">
-      <div class="circle-orbit o1"></div>
-      <div class="circle-orbit o2"></div>
-      <div class="center-circle">ShopMy</div>
-      <div class="satellite s1">Creator</div>
-      <div class="satellite s2">Brand</div>
-      <div class="satellite s3">Content</div>
-      <div class="satellite s4">Shopper</div>
-      <div class="satellite s5">Commission</div>
-      <div class="satellite s6">Insight</div>
-    </div>
-  </div>
 </section>
 
-<!-- ========================================== -->
-<!-- DISCOVER UI: Add to Circle (큐레이터 follow 액션) -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">Discover Flow</div>
-  <h2 class="section-title reveal">"Add to Circle" — 큐레이터 follow 액션</h2>
+<!-- ================= 4. 인플루언서에게 무엇 제공? ================= -->
+<section id="s4">
+  <div class="section-tag">Section 04 · Platform Tools</div>
+  <h2 class="section-title reveal">
+    <span class="section-num">4</span>인플루언서에게 무엇을 제공?
+  </h2>
   <p class="section-sub reveal">
-    큐레이터 프로필 進入 즉시 <strong style="color:var(--ink)">"Favorite this curator by adding them to your first circle"</strong> 안내 노출 →
-    1-tap "Add to Circle" 버튼으로 즉시 lock-in. CTA 강화 + 첫 Circle 형성 onboarding 완결
+    Brand-Influencer 양면 lock-in 도구 — ① 실시간 매칭 시스템 + ② 실시간 성과 대시보드.
+    인플루언서가 별도 코칭 없이 데이터만으로 self-optimization 가능한 구조
   </p>
 
-  <div class="capture-grid reveal-stagger">
-    <div class="capture-cell">
-      <img src="images/mobile_discover_top.jpg" alt="ShopMy Curator Discover - Add to Circle CTA" loading="lazy">
-      <div class="cap-label">Curator Profile · Add to Circle CTA</div>
+  <!-- 4a: 실시간 매칭 -->
+  <h3 style="font-size: 16px; font-weight: 800; margin-bottom: 12px; letter-spacing:-0.015em;">
+    ① 브랜드 ↔ 인플루언서 실시간 매칭
+  </h3>
+  <p class="section-sub" style="margin-bottom: 18px;">
+    1,200+ brand · 18.5만 creator 풀에서 카테고리·tier·vertical 기반 자동 매칭
+  </p>
+
+  <div class="match-stage reveal">
+    <div class="match-flow">
+      <div class="match-col brands">
+        <div class="mc-label">Brands</div>
+        <div class="mc-item">Dior</div>
+        <div class="mc-item">Lululemon</div>
+        <div class="mc-item">Sephora</div>
+        <div class="mc-item">+1,197</div>
+      </div>
+      <div class="match-arrow">
+        <div class="ma-icon">⇌</div>
+        <div class="ma-text">실시간<br>매칭</div>
+      </div>
+      <div class="match-col creators">
+        <div class="mc-label">Creators</div>
+        <div class="mc-item">Shea McGee</div>
+        <div class="mc-item">Joanna Czech</div>
+        <div class="mc-item">Camila C.</div>
+        <div class="mc-item">+184,997</div>
+      </div>
     </div>
-    <div class="capture-cell">
-      <img src="images/mobile_shop_top.jpg" alt="ShopMy Shop - Search less, discover more" loading="lazy">
-      <div class="cap-label">Shop Home · Create Your First Circle</div>
+    <div class="match-stats">
+      <div class="match-stat">
+        <div class="ms-v">1,200+</div>
+        <div class="ms-l">브랜드 partner</div>
+      </div>
+      <div class="match-stat">
+        <div class="ms-v">185K</div>
+        <div class="ms-l">creator 풀</div>
+      </div>
+      <div class="match-stat">
+        <div class="ms-v">5×</div>
+        <div class="ms-l">brand ROI<br>(vs 일반 광고)</div>
+      </div>
     </div>
   </div>
-  <p class="circles-cap" style="margin-top:12px;">
-    ★ 시사점: 단순 follow가 아닌 <strong>'Circle 그룹화'</strong> 구조 — 다중 큐레이터의 '집단 안목'을 한 단위로 묶어 신뢰 layer 강화
+  <p class="src-cap" style="margin-bottom: 36px;">
+    출처: ShopMy Series B PR ('25.01·Adweek) "$352M brand sales · 5x ROI" · Sacra Research '25
+  </p>
+
+  <!-- 4b: 실시간 성과 대시보드 -->
+  <h3 style="font-size: 16px; font-weight: 800; margin-bottom: 12px; letter-spacing:-0.015em;">
+    ② 실시간 성과 평가 대시보드
+  </h3>
+  <p class="section-sub" style="margin-bottom: 18px;">
+    실제 ShopMy 인플루언서 dashboard — 상품別 클릭·주문·commission·affiliate link 실시간 추적
+  </p>
+
+  <div class="dashboard-real reveal">
+    <img src="images/dashboard_provided.jpg" alt="ShopMy Influencer Dashboard - Icon tier 89/100 - 12.5k clicks · 71 orders · $958 earned" loading="lazy">
+    <div class="dashboard-cap">
+      <strong>실제 ShopMy 인플루언서 대시보드</strong> · Icon tier 89/100 · 12.5K Clicks · 71 Orders · $958 Earned<br>
+      My Shop / Links / Gifting &amp; Codes / Earnings / Latest 5개 탭 — 각 product별 commission rate(11~17%) 자동 산정
+    </div>
+  </div>
+  <p class="src-cap">
+    출처: 실제 ShopMy 인플루언서 dashboard 캡처 (LEVI'S·Aurate·CULT GAIA·Lady Lux Layering 등 실 sale 履歷 포함)
   </p>
 </section>
 
-<!-- ========================================== -->
-<!-- VERTICAL EXPERTS (전문가 풀 — 단순 셀럽 X) -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">Vertical Experts</div>
-  <h2 class="section-title reveal">팔로워 數 아닌 '전문성' 기반 풀</h2>
-  <p class="section-sub reveal">
-    셀럽·메가 인플루언서 일변도 LTK·Amazon과 차별 — 의료·뷰티·인테리어·웰니스 등<br>
-    각 vertical의 검증된 전문가·micro-influencer 집중 큐레이션
-  </p>
-
-  <div class="creator-grid reveal-stagger">
-    <div class="creator-card">
-      <div class="creator-avatar ca-1 verified">SR</div>
-      <div class="creator-name">Sofia Richie Grainge</div>
-      <div class="creator-cat">Style Curator · Fashion<br>Series C 투자자 · IG 11M+</div>
-      <div class="creator-tag">CELEBRITY</div>
-    </div>
-    <div class="creator-card">
-      <div class="creator-avatar ca-2 verified">CC</div>
-      <div class="creator-name">Camila Coelho</div>
-      <div class="creator-cat">Beauty Brand Founder<br>Elaluz 創 · TIME100 '25</div>
-      <div class="creator-tag expert">FOUNDER</div>
-    </div>
-    <div class="creator-card">
-      <div class="creator-avatar ca-3 verified">AS</div>
-      <div class="creator-name">Aimee Song</div>
-      <div class="creator-cat">Fashion Designer<br>Song of Style 創 · IG 7M+</div>
-      <div class="creator-tag expert">FOUNDER</div>
-    </div>
-    <div class="creator-card">
-      <div class="creator-avatar ca-4 verified">SM</div>
-      <div class="creator-name">Shea McGee</div>
-      <div class="creator-cat">Interior Designer<br>Studio McGee 創 · 인테리어</div>
-      <div class="creator-tag expert">EXPERT</div>
-    </div>
-    <div class="creator-card">
-      <div class="creator-avatar ca-7 verified">Dr</div>
-      <div class="creator-name">Board-Cert.<br>Dermatologists</div>
-      <div class="creator-cat">의료·피부 vertical<br>50+ 전문의 입점 (예시)</div>
-      <div class="creator-tag micro">MICRO · 醫</div>
-    </div>
-    <div class="creator-card">
-      <div class="creator-avatar ca-6">St</div>
-      <div class="creator-name">Celebrity<br>Estheticians</div>
-      <div class="creator-cat">스킨케어 전문가<br>NYC·LA 클리닉 운영자</div>
-      <div class="creator-tag micro">MICRO · 美</div>
-    </div>
-    <div class="creator-card">
-      <div class="creator-avatar ca-5">St</div>
-      <div class="creator-name">Personal<br>Stylists</div>
-      <div class="creator-cat">개인 스타일링<br>패션 인사이더</div>
-      <div class="creator-tag micro">MICRO · 패션</div>
-    </div>
-    <div class="creator-card">
-      <div class="creator-avatar ca-8">We</div>
-      <div class="creator-name">Wellness<br>Coaches</div>
-      <div class="creator-cat">영양·피트니스·정신건강<br>자격증 보유</div>
-      <div class="creator-tag micro">MICRO · 웰니스</div>
-    </div>
-  </div>
-  <p class="hero-image-cap" style="margin-top:14px;">
-    ★ 핵심: "팔로워 數보다 vertical 전문성"이 신뢰의 기반<br>
-    출처: BoF '25.10·TIME100 Creators '25·ShopMy Investor Deck
-  </p>
-</section>
-
-<!-- ========================================== -->
-<!-- SOCIAL PROOF UI (전문가 공통 추천) -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">Social Proof</div>
-  <h2 class="section-title reveal">"33명의 큐레이터가 추천"</h2>
-  <p class="section-sub reveal">
-    개별 광고가 아닌 <strong style="color:var(--ink)">전문가 집단의 공통된 안목</strong>이
-    구매 전환을 일으키는 핵심 동력. 신뢰의 횡적 누적 (collective endorsement)
-  </p>
-
-  <div class="product-mock reveal">
-    <div class="pm-image">
-      <span class="pm-tag">Most Loved · Beauty</span>
-    </div>
-    <div class="pm-info">
-      <div class="pm-brand">SUMMER FRIDAYS</div>
-      <div class="pm-name">Lip Butter Balm — Vanilla</div>
-      <div class="pm-price">$24</div>
-      <div class="pm-recommend">
-        <div class="pm-avatars">
-          <div class="pm-av ca-1">DJ</div>
-          <div class="pm-av ca-2">CC</div>
-          <div class="pm-av ca-7">Dr</div>
-          <div class="pm-av ca-3">AS</div>
-          <div class="pm-av pm-more">+29</div>
-        </div>
-        <div class="pm-rec-text">
-          <strong>33명</strong> 큐레이터 공통 추천<br>
-          <span style="font-weight:500; color:var(--sub); font-size:10px;">Derm 12·Esthetician 9·Stylist 12</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <p class="hero-image-cap" style="margin-top:14px;">
-    ★ 시사점: 개별 인플루언서 후기 ≠ 다중 전문가 공통 endorsement → 후자가 전환률 압도적 高
-  </p>
-</section>
-
-<!-- ========================================== -->
-<!-- VIDEO SECTION -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">Video</div>
-  <h2 class="section-title reveal">서비스 소개 영상</h2>
-  <p class="section-sub reveal">
-    창업자 인터뷰 + 플랫폼 작동 메커니즘 1분 요약
-  </p>
-
-  <div class="video-wrap reveal">
-    <!-- PLACEHOLDER: 아래 iframe src에 실제 YouTube ID 삽입 -->
-    <!-- 예: https://www.youtube.com/embed/gAABhu2dNc8 (Harry Rein·Tiffany Lopinsky 인터뷰) -->
-    <!--
-    <iframe
-      src="https://www.youtube.com/embed/gAABhu2dNc8?rel=0&modestbranding=1"
-      title="ShopMy 서비스 소개"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
-    -->
-    <div class="video-placeholder">
-      <div class="play-icon">
-        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="vt">ShopMy Founders Interview</div>
-      <div class="vs">YouTube · Harry Rein & Tiffany Lopinsky · 약 1:00</div>
-    </div>
-  </div>
-  <p class="video-cap">출처: ShopMy Official YouTube (gAABhu2dNc8)</p>
-</section>
-
-<!-- ========================================== -->
-<!-- DIVIDER: 공급자 관점 -->
-<!-- ========================================== -->
-<div class="market-side reveal">
-  <span class="ms-tag supplier">공급자 관점</span>
-  <span class="ms-label">"이렇게 스스로 일한다"</span>
-  <span class="ms-line"></span>
-</div>
-
-<!-- ========================================== -->
-<!-- BM 3-STEP -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">Business Model</div>
-  <h2 class="section-title reveal">3단계 비즈니스 로직</h2>
-  <p class="section-sub reveal">
-    선별 → 육성 → 락인 — 인플루언서를 단순 광고 매개에서<br>
-    'curated 자산'으로 전환시키는 ShopMy의 핵심 메커니즘
-  </p>
-
-  <div class="bm-cards reveal-stagger">
-    <div class="bm-card">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-name">Selection · 선별</div>
-      </div>
-      <h3>5개 채널 1개만 있어도 진입</h3>
-      <p>IG·TikTok·YT·Pinterest·Blog 中 1개 보유로 신청 가능. LTK(5,000명 최소) 대비 진입 장벽 무·premium 큐레이션 별도 적용</p>
-      <ul class="points">
-        <li>인바운드: creator 자발 신청 後 brand 적합도 심사</li>
-        <li>아웃바운드: ShopMy CSM이 niche·premium creator 직접 발굴</li>
-        <li>'25 누적 18.5만 creator 확보 ('23 4만 → 5배)</li>
-      </ul>
-    </div>
-
-    <div class="bm-card">
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-name">Nurture · 육성</div>
-      </div>
-      <h3>120점 score · 4단계 Tier 시스템</h3>
-      <p>Enthusiast → Ambassador → Trendsetter → Icon. 활동성·트래픽·전환·Referral 5축 정량평가로 등급별 차등 혜택 부여</p>
-      <ul class="points">
-        <li>월 주문량 50점 가중 — sales-first 평가 구조</li>
-        <li>Icon (상위 5%): CSM 1:1 코칭 + Referral 보너스 $1,000/건</li>
-        <li>Brand gifting·proposal 권한 등급별 단계 개방</li>
-      </ul>
-    </div>
-
-    <div class="bm-card">
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-name">Lock-in · 락인</div>
-      </div>
-      <h3>18개월+ 체류 · 업계 최고 retention</h3>
-      <p>LTK·SNS 평균 6~12개월 대비 2배. B2B 구독(50%) + 어필리에이트 commission(50%) 양면 수익 구조로 brand·creator 동시 lock-in</p>
-      <ul class="points">
-        <li>Brand당 매출 $16K → $67K ('23→'25, 4배 심화)</li>
-        <li>Circles B2C 앱 ('25.07 론칭) — 소비자 directly lock-in</li>
-        <li>Thingtesting 인수 ('25.08) — 리뷰·discovery layer 통합</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================== -->
-<!-- CREATOR DASHBOARD MOCKUP (공급자 자율 성장 도구) -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">Creator Dashboard</div>
-  <h2 class="section-title reveal">자율 성장 데이터 도구</h2>
-  <p class="section-sub reveal">
-    인적 코칭 없이 데이터가 인플루언서를 스스로 학습시키는 구조 —<br>
-    클릭·전환·commission 실시간 가시화로 self-optimization 유도
-  </p>
-
-  <div class="dashboard-mock reveal">
-    <div class="dm-header">
-      <div>
-        <div class="dm-title">Creator Performance · @sofia.curates</div>
-        <div class="dm-period" style="margin-top:3px;">2026 March · MTD</div>
-      </div>
-      <div style="font-size:18px;">📊</div>
-    </div>
-    <div class="dm-stats">
-      <div class="dm-stat">
-        <div class="dm-label">Clicks</div>
-        <div class="dm-value">12.4K</div>
-        <div class="dm-delta up">▲ +34% vs 전월</div>
-      </div>
-      <div class="dm-stat">
-        <div class="dm-label">Conv.</div>
-        <div class="dm-value">7.8%</div>
-        <div class="dm-delta up">▲ +1.2pt</div>
-      </div>
-      <div class="dm-stat">
-        <div class="dm-label">Earnings</div>
-        <div class="dm-value">$3,240</div>
-        <div class="dm-delta up">▲ +52%</div>
-      </div>
-    </div>
-    <div class="dm-chart-wrap">
-      <div class="dm-chart-title">Daily Commission · 30 Days</div>
-      <div class="dm-chart" id="dmChart">
-        <div class="dmc-bar" data-h="20"></div>
-        <div class="dmc-bar" data-h="35"></div>
-        <div class="dmc-bar" data-h="28"></div>
-        <div class="dmc-bar" data-h="45"></div>
-        <div class="dmc-bar" data-h="40"></div>
-        <div class="dmc-bar" data-h="55"></div>
-        <div class="dmc-bar" data-h="50"></div>
-        <div class="dmc-bar" data-h="60"></div>
-        <div class="dmc-bar peak" data-h="85"></div>
-        <div class="dmc-bar peak" data-h="92"></div>
-        <div class="dmc-bar" data-h="70"></div>
-        <div class="dmc-bar" data-h="65"></div>
-        <div class="dmc-bar" data-h="55"></div>
-        <div class="dmc-bar" data-h="48"></div>
-        <div class="dmc-bar" data-h="62"></div>
-        <div class="dmc-bar" data-h="58"></div>
-        <div class="dmc-bar" data-h="72"></div>
-        <div class="dmc-bar peak" data-h="88"></div>
-        <div class="dmc-bar peak" data-h="95"></div>
-        <div class="dmc-bar" data-h="68"></div>
-        <div class="dmc-bar" data-h="60"></div>
-        <div class="dmc-bar" data-h="55"></div>
-        <div class="dmc-bar" data-h="65"></div>
-        <div class="dmc-bar" data-h="78"></div>
-        <div class="dmc-bar" data-h="70"></div>
-        <div class="dmc-bar" data-h="62"></div>
-        <div class="dmc-bar peak" data-h="82"></div>
-        <div class="dmc-bar peak" data-h="90"></div>
-        <div class="dmc-bar" data-h="75"></div>
-        <div class="dmc-bar" data-h="68"></div>
-      </div>
-      <div class="dm-chart-labels">
-        <span>3/1</span><span>3/8</span><span>3/15</span><span>3/22</span><span>3/30</span>
-      </div>
-    </div>
-    <div class="dm-products">
-      <div class="dm-row">
-        <div class="dmr-icon"></div>
-        <div class="dmr-info">
-          <div class="dmr-name">Summer Fridays Lip Butter Balm</div>
-          <div class="dmr-meta">142 sales · 8.4% conv · 3 days top</div>
-        </div>
-        <div class="dmr-amount">$842</div>
-      </div>
-      <div class="dm-row">
-        <div class="dmr-icon" style="background:linear-gradient(135deg,#f4e2eb,#e8c8d8);"></div>
-        <div class="dmr-info">
-          <div class="dmr-name">Glossier Cloud Paint · Beam</div>
-          <div class="dmr-meta">98 sales · 7.1% conv</div>
-        </div>
-        <div class="dmr-amount">$520</div>
-      </div>
-      <div class="dm-row">
-        <div class="dmr-icon" style="background:linear-gradient(135deg,#e2ebf4,#c8d8e8);"></div>
-        <div class="dmr-info">
-          <div class="dmr-name">Lululemon Align Pant 25"</div>
-          <div class="dmr-meta">42 sales · 11.2% conv</div>
-        </div>
-        <div class="dmr-amount">$498</div>
-      </div>
-    </div>
-  </div>
-  <p class="hero-image-cap" style="margin-top:14px;">
-    ★ 시사점: creator는 별도 코칭 없이 대시보드 數치만으로 어떤 콘텐츠·제품이 통하는지 즉시 학습 → 자율 최적화
-  </p>
-</section>
-
-<!-- ========================================== -->
-<!-- INTERACTIVE GROWTH CHART -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">Traction</div>
-  <h2 class="section-title reveal">인플루언서 성장 추이</h2>
-  <p class="section-sub reveal">
-    '23 4만 → '25 20만+ · 3년만에 5배 성장
-  </p>
-
-  <div class="chart-wrap reveal">
-    <div class="chart-head">
-      <div>
-        <div class="ct">크리에이터 (천 명)</div>
-        <div class="cl">출처: Sacra Research '25 · ShopMy Investor Deck</div>
-      </div>
-    </div>
-    <div class="chart-bars" id="chartBars">
-      <div class="bar-col"><div class="bar-val">2</div><div class="bar muted" data-h="1"></div><div class="bar-yr">'21</div></div>
-      <div class="bar-col"><div class="bar-val">10</div><div class="bar muted" data-h="5"></div><div class="bar-yr">'22</div></div>
-      <div class="bar-col"><div class="bar-val">40</div><div class="bar muted" data-h="20"></div><div class="bar-yr">'23</div></div>
-      <div class="bar-col"><div class="bar-val">100</div><div class="bar muted" data-h="50"></div><div class="bar-yr">'24</div></div>
-      <div class="bar-col"><div class="bar-val">200</div><div class="bar" data-h="100"></div><div class="bar-yr">'25</div></div>
-      <div class="bar-col"><div class="bar-val">320</div><div class="bar" data-h="160"></div><div class="bar-yr">'26F</div></div>
-    </div>
-    <div class="chart-foot">
-      ※ '26F는 v8 PPT 전망치. 비교: LTK 24만 명 (14년 누적·'11 설립) — ShopMy는 5년만에 도달
-    </div>
-  </div>
-</section>
-
-<!-- ========================================== -->
-<!-- FOUNDER QUOTE -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">Founder Voice</div>
-  <h2 class="section-title reveal">창업자의 시선</h2>
-  <p class="section-sub reveal">
-    인플루언서를 'broadcast 채널' 아닌 '동등한 commerce partner'로
-    재정의한 ShopMy의 철학
-  </p>
-
-  <div class="quote reveal">
-    <p class="q-text">
-      "We define influencers not as media — but as our co-partners
-      in commerce. Their trust is the asset; our job is to
-      monetize it without diluting it."
-    </p>
-    <p class="q-text" style="font-size:13px; opacity:0.75; margin-top:-8px;">
-      "우리는 인플루언서를 미디어가 아닌 commerce 공동 파트너로 정의한다.
-      그들의 신뢰가 자산이며, 그것을 희석시키지 않으면서 수익화하는 것이 우리의 일이다."
-    </p>
-    <div class="q-attrib">
-      <div class="q-avatar">TL</div>
-      <div>
-        <div class="q-name">Tiffany Lopinsky</div>
-        <div class="q-role">Co-founder & President, ShopMy</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================== -->
-<!-- BACKUP DIVIDER -->
-<!-- ========================================== -->
-<div class="market-side reveal" style="background: var(--bg); padding: 40px 24px 0;">
-  <span class="ms-tag" style="background: var(--gold); color:#fff;">백업 자료</span>
-  <span class="ms-label">"고관여 상품·럭셔리 브랜드 ・ 카테고리 확장성"</span>
-  <span class="ms-line"></span>
-</div>
-
-<!-- ========================================== -->
-<!-- BACKUP 1: CASE STUDY (고관여 상품 사례) -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">Case Study · 고관여</div>
-  <h2 class="section-title reveal">전문가 큐레이션 → 고관여 매출</h2>
-  <p class="section-sub reveal">
-    Studio McGee(인테리어 디자이너) 사례 — 가구·홈데코는 객단가 $200+ 高관여 카테고리.
-    <strong style="color:var(--ink)">전문성 기반 큐레이션</strong>이 일반 광고 노출 대비 ROI 5배·brand당 매출 4배 격차 발생
-  </p>
-
-  <!-- 실제 Shea McGee 프로필 캡처 -->
-  <div class="web-preview reveal">
-    <div class="browser-bar">
-      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
-      <div class="url">shopmy.us/sheamcgee</div>
-    </div>
-    <img src="images/desktop_sheamcgee_top.jpg" alt="ShopMy Shea McGee Curator Profile" style="width:100%; display:block;">
-  </div>
-  <p class="circles-cap" style="margin-top:8px; margin-bottom:18px;">
-    실제 ShopMy Shea McGee 큐레이터 프로필 — <strong>"Icon · Trusted by 456K shoppers"</strong> 표기
-  </p>
-
-  <div class="case-card reveal">
-    <div class="cc-header">
-      <div class="cc-avatar verified">SM</div>
-      <div class="cc-meta">
-        <div class="cc-name">Shea McGee</div>
-        <div class="cc-role">Co-founder · CCO of @studiomcgee &amp; @mcgeeandco · Interior Designer</div>
-        <div class="cc-tag">ICON · TRUSTED 456K</div>
-      </div>
-    </div>
-    <div class="cc-body">
-      <div class="cc-metrics">
-        <div class="cc-metric">
-          <div class="ccm-v">456K</div>
-          <div class="ccm-l">Trusted shoppers<br>(ShopMy 公式 표기)</div>
-        </div>
-        <div class="cc-metric">
-          <div class="ccm-v">5×</div>
-          <div class="ccm-l">brand ROI<br>vs 일반 광고</div>
-        </div>
-        <div class="cc-metric">
-          <div class="ccm-v">$67K</div>
-          <div class="ccm-l">brand당 연매출<br>('25 평균)</div>
-        </div>
-      </div>
-
-      <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:var(--sub); margin-bottom:8px; text-transform:uppercase;">큐레이션 카테고리·상품 數 (公式 표기)</div>
-      <div class="cc-products">
-        <div class="cc-prod">
-          <div class="cc-prod-img"></div>
-          <div class="cc-prod-info">
-            <div class="cc-prod-name">APPAREL · 패션 의류</div>
-            <div class="cc-prod-meta">高관여 fashion 메인 카테고리</div>
-          </div>
-          <div class="cc-prod-price">671개</div>
-        </div>
-        <div class="cc-prod h2">
-          <div class="cc-prod-img"></div>
-          <div class="cc-prod-info">
-            <div class="cc-prod-name">FOOTWEAR + COATS &amp; OUTERWEAR</div>
-            <div class="cc-prod-meta">$200+ 高가 아이템 비중 多</div>
-          </div>
-          <div class="cc-prod-price">296개</div>
-        </div>
-        <div class="cc-prod h3">
-          <div class="cc-prod-img"></div>
-          <div class="cc-prod-info">
-            <div class="cc-prod-name">JEWELRY + BAGS &amp; PURSES</div>
-            <div class="cc-prod-meta">럭셔리 악세서리·핸드백 큐레이션</div>
-          </div>
-          <div class="cc-prod-price">209개</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <p class="hero-image-cap" style="margin-top:14px;">
-    출처: shopmy.us/sheamcgee 프로필 (2026.04.29 캡처·"Icon · Trusted by 456K shoppers" 公式 표기) ·
-    Sacra Research '25 (brand당 매출 $16K→$67K) · ShopMy Series B PR ('25.01·"$352M brand sales · 5x ROI")
-  </p>
-</section>
-
-<!-- ========================================== -->
-<!-- BACKUP 2: BRAND PORTFOLIO (명품·premium 협업) -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">Brand Alignment</div>
-  <h2 class="section-title reveal">럭셔리·premium 브랜드 입점</h2>
-  <p class="section-sub reveal">
-    "보수적인 럭셔리 브랜드도 ShopMy 전문가 큐레이션을 신뢰" —
-    1,200+ direct partner · 1,500+ chat-enabled · 47,000+ commissionable brand 풀
-  </p>
-
-  <!-- Luxury tier -->
-  <div style="margin-top:8px;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-      <span class="lux-tier-tag luxury">LUXURY</span>
-      <span style="font-size:10px; color:var(--sub);">公示 입점 확정</span>
-    </div>
-    <div class="lux-grid reveal-stagger">
-      <div class="lux-cell"><img src="https://logo.clearbit.com/dior.com" alt="Dior" onerror="this.outerHTML='<div class=fb-text>DIOR</div>'"></div>
-      <div class="lux-cell"><img src="https://logo.clearbit.com/prada.com" alt="Prada" onerror="this.outerHTML='<div class=fb-text>PRADA</div>'"></div>
-      <div class="lux-cell"><img src="https://logo.clearbit.com/chanel.com" alt="Chanel" onerror="this.outerHTML='<div class=fb-text>CHANEL</div>'"></div>
-    </div>
-  </div>
-
-  <!-- Premium tier -->
-  <div style="margin-top:18px;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-      <span class="lux-tier-tag premium">PREMIUM</span>
-      <span style="font-size:10px; color:var(--sub);">Series B/C 발표 인용</span>
-    </div>
-    <div class="lux-grid reveal-stagger">
-      <div class="lux-cell"><img src="https://logo.clearbit.com/lululemon.com" alt="Lululemon" onerror="this.outerHTML='<div class=fb-text>LULULEMON</div>'"></div>
-      <div class="lux-cell"><img src="https://logo.clearbit.com/nordstrom.com" alt="Nordstrom" onerror="this.outerHTML='<div class=fb-text>NORDSTROM</div>'"></div>
-      <div class="lux-cell"><img src="https://logo.clearbit.com/sephora.com" alt="Sephora" onerror="this.outerHTML='<div class=fb-text>SEPHORA</div>'"></div>
-      <div class="lux-cell"><img src="https://logo.clearbit.com/anthropologie.com" alt="Anthropologie" onerror="this.outerHTML='<div class=fb-text>ANTHRO</div>'"></div>
-      <div class="lux-cell"><img src="https://logo.clearbit.com/hillhousehome.com" alt="Hill House Home" onerror="this.outerHTML='<div class=fb-text>HILL HOUSE</div>'"></div>
-      <div class="lux-cell"><img src="https://logo.clearbit.com/sakara.com" alt="Sakara" onerror="this.outerHTML='<div class=fb-text>SAKARA</div>'"></div>
-    </div>
-  </div>
-
-  <!-- Contemporary tier -->
-  <div style="margin-top:18px;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-      <span class="lux-tier-tag contemporary">CONTEMPORARY</span>
-      <span style="font-size:10px; color:var(--sub);">Beauty / DTC 강세</span>
-    </div>
-    <div class="lux-grid reveal-stagger">
-      <div class="lux-cell"><img src="https://logo.clearbit.com/rarebeauty.com" alt="Rare Beauty" onerror="this.outerHTML='<div class=fb-text>RARE BEAUTY</div>'"></div>
-      <div class="lux-cell"><img src="https://logo.clearbit.com/maccosmetics.com" alt="MAC" onerror="this.outerHTML='<div class=fb-text>MAC</div>'"></div>
-      <div class="lux-cell"><img src="https://logo.clearbit.com/glossier.com" alt="Glossier" onerror="this.outerHTML='<div class=fb-text>GLOSSIER</div>'"></div>
-      <div class="lux-cell"><img src="https://logo.clearbit.com/beis.com" alt="BÉIS" onerror="this.outerHTML='<div class=fb-text>BÉIS</div>'"></div>
-      <div class="lux-cell"><img src="https://logo.clearbit.com/farmrio.com" alt="Farm Rio" onerror="this.outerHTML='<div class=fb-text>FARM RIO</div>'"></div>
-      <div class="lux-cell"><img src="https://logo.clearbit.com/summerfridays.com" alt="Summer Fridays" onerror="this.outerHTML='<div class=fb-text>SUMMER FRI</div>'"></div>
-    </div>
-  </div>
-
-  <!-- Real ShopMy brand category UI capture -->
-  <div class="capture-grid reveal" style="margin-top: 22px;">
-    <div class="capture-cell">
-      <img src="images/mobile_cat_home_top.jpg" alt="ShopMy Home & Living category" loading="lazy">
-      <div class="cap-label">Home & Living 카테고리 진입</div>
-    </div>
-    <div class="capture-cell">
-      <img src="images/mobile_cat_fashion_top.jpg" alt="ShopMy Fashion category" loading="lazy">
-      <div class="cap-label">Fashion & Accessories 1.7m+ 상품</div>
-    </div>
-  </div>
-
-  <p class="hero-image-cap" style="margin-top:14px;">
-    출처: ShopMy 公式 (shopmy.us/brands·shopmy.us/shop) · saltyvagabonds.com '25 ("offers luxury brand partners like Prada and Chanel")<br>
-    Tubefilter '25.01 / Adweek '25.01 (550 direct + 50,000 commissionable brands)
-  </p>
-</section>
-
-<!-- ========================================== -->
-<!-- BACKUP 3: CATEGORY DIVERSITY (DB 다양성·확장성) -->
-<!-- ========================================== -->
-<section>
-  <div class="section-tag">DB Diversity</div>
-  <h2 class="section-title reveal">전문가 카테고리 분포 + 확장 추이</h2>
-  <p class="section-sub reveal">
-    Beauty 출발 → Fashion·Home·Wellness 등 5개 vertical로 확장 中.
-    전문가 풀 다양성 ↑ → 럭셔리·premium brand 입점 ↑ 정비례 추세
-  </p>
-
-  <div class="data-row">
-    <!-- Pie chart: Category distribution -->
-    <div class="data-card reveal">
-      <div class="dc-title">Vertical 별 큐레이터 분포 [추정]</div>
-      <div class="dc-sub">출처: ShopMy 公式 카테고리 ('25.10 기준) · 비중 desk research 추정</div>
-      <div class="pie-wrap">
-        <div class="pie">
-          <div class="pie-center">
-            <div class="pcv">18.5만+</div>
-            <div class="pcl">total<br>creators</div>
-          </div>
-        </div>
-        <div class="pie-legend">
-          <div class="pie-legend-item">
-            <span class="pie-dot" style="background:#FF3B30;"></span>
-            <span class="pie-name">Beauty · Personal Care</span>
-            <span class="pie-pct">32%</span>
-          </div>
-          <div class="pie-legend-item">
-            <span class="pie-dot" style="background:#B8964F;"></span>
-            <span class="pie-name">Fashion · Accessories</span>
-            <span class="pie-pct">24%</span>
-          </div>
-          <div class="pie-legend-item">
-            <span class="pie-dot" style="background:#5b3c2e;"></span>
-            <span class="pie-name">Home · Living</span>
-            <span class="pie-pct">18%</span>
-          </div>
-          <div class="pie-legend-item">
-            <span class="pie-dot" style="background:#355c46;"></span>
-            <span class="pie-name">Wellness · Fitness</span>
-            <span class="pie-pct">13%</span>
-          </div>
-          <div class="pie-legend-item">
-            <span class="pie-dot" style="background:#2e4a7c;"></span>
-            <span class="pie-name">Lifestyle · Travel</span>
-            <span class="pie-pct">9%</span>
-          </div>
-          <div class="pie-legend-item">
-            <span class="pie-dot" style="background:#7c2e5b;"></span>
-            <span class="pie-name">Food · Other</span>
-            <span class="pie-pct">4%</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Line chart: brand growth correlation -->
-    <div class="data-card reveal">
-      <div class="dc-title">전문가 풀 ↔ Brand 입점 정비례</div>
-      <div class="dc-sub">출처: Sacra Research '25 (creator·brand 數치) · ShopMy Investor Deck</div>
-      <div class="line-chart">
-        <svg class="line-svg" viewBox="0 0 300 160" preserveAspectRatio="none">
-          <!-- Grid lines -->
-          <line x1="0" y1="40" x2="300" y2="40" stroke="#e6e2db" stroke-dasharray="2,3"/>
-          <line x1="0" y1="80" x2="300" y2="80" stroke="#e6e2db" stroke-dasharray="2,3"/>
-          <line x1="0" y1="120" x2="300" y2="120" stroke="#e6e2db" stroke-dasharray="2,3"/>
-
-          <!-- Creator line (RED) -->
-          <polyline class="line-creator" fill="none" stroke="#FF3B30" stroke-width="2.5"
-            points="20,150 80,140 140,120 200,80 260,30"
-            stroke-dasharray="500" stroke-dashoffset="500"/>
-          <!-- Brand line (GOLD) -->
-          <polyline class="line-brand" fill="none" stroke="#B8964F" stroke-width="2.5"
-            points="20,148 80,142 140,128 200,100 260,52"
-            stroke-dasharray="500" stroke-dashoffset="500"/>
-
-          <!-- Data points creator -->
-          <circle cx="20" cy="150" r="3" fill="#FF3B30"/>
-          <circle cx="80" cy="140" r="3" fill="#FF3B30"/>
-          <circle cx="140" cy="120" r="3" fill="#FF3B30"/>
-          <circle cx="200" cy="80" r="3" fill="#FF3B30"/>
-          <circle cx="260" cy="30" r="4" fill="#FF3B30"/>
-          <!-- Data points brand -->
-          <circle cx="20" cy="148" r="3" fill="#B8964F"/>
-          <circle cx="80" cy="142" r="3" fill="#B8964F"/>
-          <circle cx="140" cy="128" r="3" fill="#B8964F"/>
-          <circle cx="200" cy="100" r="3" fill="#B8964F"/>
-          <circle cx="260" cy="52" r="4" fill="#B8964F"/>
-
-          <!-- Labels for end points -->
-          <text x="266" y="22" fill="#FF3B30" font-size="9" font-weight="700">200K creator</text>
-          <text x="266" y="44" fill="#B8964F" font-size="9" font-weight="700">1,200 brand</text>
-        </svg>
-      </div>
-      <div class="line-points">
-        <span>'21</span><span>'22</span><span>'23</span><span>'24</span><span>'25</span>
-      </div>
-      <div class="line-legend">
-        <div class="line-legend-item">
-          <span class="line-leg-color" style="background:#FF3B30;"></span>
-          <span>Creator (千명) — 2 → 10 → 40 → 100 → 200</span>
-        </div>
-      </div>
-      <div class="line-legend" style="margin-top:4px;">
-        <div class="line-legend-item">
-          <span class="line-leg-color" style="background:#B8964F;"></span>
-          <span>Brand (개) — 50 → 200 → 500 → 1,000 → 1,200</span>
-        </div>
-      </div>
-      <p style="font-size:10px; color:var(--sub); margin-top:14px; line-height:1.55;">
-        ★ 시사점: Creator 5배 (40K→200K, '23→'25) ↗ Brand 2.4배 (500→1,200) — Creator pool 다양성 확보가 brand 입점 confidence 견인
-      </p>
-    </div>
-  </div>
-
-  <p class="hero-image-cap" style="margin-top:14px;">
-    출처: Sacra Research '25 · ShopMy 公式·Investor Deck · 카테고리 비중은 ShopMy 公式 카테고리 구분(Beauty·Fashion·Home·Wellness·Lifestyle·Food) desk research 추정
-  </p>
-</section>
-
-<!-- ========================================== -->
-<!-- FOOTER -->
-<!-- ========================================== -->
+<!-- ================= FOOTER ================= -->
 <footer>
   <div class="brand">CJ 미래경영연구원</div>
   <div class="meta">
     Market Watch v8 · ShopMy 핵심 경쟁력 리포트<br>
-    출처: Sacra Research '25 · PRNewswire '25.10 · ShopMy 公式 · v8 Storyline
+    출처: ShopMy 公式 (shopmy.us)·Sacra Research '25·PRNewswire '25.10·Instagram Reels (인용)<br>
+    내부 임원 브리핑 목적 限定 사용
   </div>
 </footer>
 
 <script>
+  // Scroll progress for status bar
   const fill = document.getElementById('progressFill');
   function updateProgress() {
     const sc = window.scrollY;
     const max = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = max > 0 ? Math.min(100, (sc/max)*100) : 0;
-    fill.style.width = pct + '%';
+    fill.style.width = (max > 0 ? Math.min(100, (sc/max)*100) : 0) + '%';
   }
   window.addEventListener('scroll', updateProgress, { passive:true });
   updateProgress();
 
+  // Reveal on scroll
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('in');
-        if (e.target.id === 'chartBars' || e.target.querySelector?.('#chartBars')) {
-          document.querySelectorAll('#chartBars .bar').forEach(b => {
-            const h = parseFloat(b.dataset.h || 0);
-            b.style.height = (h * 1.4) + 'px';
-          });
-        }
         io.unobserve(e.target);
       }
     });
   }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
-  const chart = document.getElementById('chartBars');
-  if (chart) io.observe(chart);
-
-  // Line chart draw animation
-  const lineChart = document.querySelector('.line-svg');
-  if (lineChart) {
-    const lineIo = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const lc = lineChart.querySelector('.line-creator');
-          const lb = lineChart.querySelector('.line-brand');
-          if (lc) {
-            lc.style.transition = 'stroke-dashoffset 1.6s ease-out';
-            lc.style.strokeDashoffset = '0';
-          }
-          if (lb) {
-            lb.style.transition = 'stroke-dashoffset 1.8s ease-out 0.2s';
-            lb.style.strokeDashoffset = '0';
-          }
-          lineIo.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    lineIo.observe(lineChart);
-  }
-
-  // Dashboard chart animation
-  const dmChart = document.getElementById('dmChart');
-  if (dmChart) {
-    const dmIo = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          dmChart.querySelectorAll('.dmc-bar').forEach((b, i) => {
-            const h = parseFloat(b.dataset.h || 0);
-            setTimeout(() => { b.style.height = h + '%'; }, i * 18);
-          });
-          dmIo.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    dmIo.observe(dmChart);
-  }
+  // Force-play videos on iOS
+  document.querySelectorAll('video').forEach(v => {
+    v.play().catch(() => {});
+  });
 </script>
 
 </body>
