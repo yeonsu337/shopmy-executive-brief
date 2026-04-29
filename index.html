@@ -76,16 +76,57 @@
     margin-bottom: 28px;
   }
 
-  /* Hero image (ShopMy 공식 CDN 이미지) */
+  /* Hero image (ShopMy 公式 캡처) */
   .hero-image-wrap {
     margin: 28px -8px 0;
     border-radius: 20px; overflow:hidden;
     box-shadow: 0 12px 40px rgba(0,0,0,0.12);
     border: 1px solid var(--line);
-    aspect-ratio: 16/10;
-    background: #f2efe9 url('https://static.shopmy.us/uploads/02990d23-d962-43ab-a4ac-980eb2207c03_App_GTM_Blog.png') center/cover no-repeat;
   }
+  .hero-image-wrap img { width:100%; display:block; }
   .hero-image-cap { font-size:10.5px; color:var(--sub); margin-top:8px; text-align:center; }
+
+  /* Real screenshot frame — phone bezel style */
+  .phone-frame {
+    max-width: 320px; margin: 0 auto;
+    background: #14110f; border-radius: 32px; padding: 12px 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 0 0 1px #2a2622;
+  }
+  .phone-frame .phone-screen {
+    border-radius: 22px; overflow:hidden; background:#fff;
+    aspect-ratio: 9/16; position: relative;
+  }
+  .phone-frame .phone-screen img {
+    width:100%; display:block;
+  }
+  .phone-frame .phone-screen.scroll img {
+    position:absolute; top:0; left:0; width:100%;
+    animation: scrollDemo 18s ease-in-out infinite;
+  }
+  @keyframes scrollDemo {
+    0%, 8% { transform: translateY(0); }
+    32%, 42% { transform: translateY(-25%); }
+    62%, 72% { transform: translateY(-55%); }
+    88%, 100% { transform: translateY(0); }
+  }
+
+  /* Capture grid */
+  .capture-grid {
+    display:grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+    margin-bottom: 12px;
+  }
+  .capture-cell {
+    border-radius: 14px; overflow:hidden;
+    border: 1px solid var(--line);
+    background: #fff;
+    box-shadow: var(--shadow);
+  }
+  .capture-cell img { width:100%; display:block; }
+  .capture-cell .cap-label {
+    font-size: 10px; color: var(--sub); font-weight: 600;
+    padding: 8px 10px; background: #fafaf7; border-top: 1px solid var(--line);
+    text-align:center;
+  }
 
   .keystats { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top: 28px; }
   .keystat {
@@ -502,9 +543,11 @@
     18.5만 인플루언서와 매칭하는 Curated Commerce Infrastructure
   </p>
 
-  <!-- Hero image: ShopMy 공식 App GTM 비주얼 -->
-  <div class="hero-image-wrap reveal" role="img" aria-label="ShopMy App Launch Hero Visual"></div>
-  <p class="hero-image-cap">출처: ShopMy 공식 ('25.07.30 Shopper App 론칭 발표)</p>
+  <!-- Hero image: ShopMy 公式 홈페이지 실제 캡처 -->
+  <div class="hero-image-wrap reveal">
+    <img src="images/mobile_home_top.jpg" alt="ShopMy Homepage - Curated by the obsessed, not the algorithm" loading="lazy">
+  </div>
+  <p class="hero-image-cap">"Curated by the obsessed, not the algorithm" · ShopMy 公式 홈 (shopmy.us · 2026.04.29 캡처)</p>
 
   <div class="keystats reveal-stagger">
     <div class="keystat"><div class="v">$1B<span class="unit"> GMV</span></div><div class="l">'25 연간</div></div>
@@ -559,36 +602,80 @@
 </div>
 
 <!-- ========================================== -->
-<!-- CIRCLES UI/UX VISUAL -->
+<!-- CIRCLES UI/UX VISUAL — 실제 ShopMy 캡처 -->
 <!-- ========================================== -->
 <section>
-  <div class="section-tag">UI / UX</div>
-  <h2 class="section-title reveal">Circles · 큐레이션의 시각화</h2>
+  <div class="section-tag">UI / UX · 실제 화면</div>
+  <h2 class="section-title reveal">Shop By Circle · 큐레이션 단위</h2>
   <p class="section-sub reveal">
-    원형 아이콘 기반의 직관적 UI로 전문가 큐레이션을 시각화.
-    중앙 brand를 둘러싼 creator·shopper·content가 하나의 commerce 동선으로 결합
+    제품이 아닌 <strong style="color:var(--ink)">'사람(전문가)을 먼저 선택'</strong>하는 UX —
+    각 vertical(Stylists·Dermatologists·Fashionistas 등)별로 큐레이터 集團을 묶은 'Circle'을 선택하면 해당 전문가 풀의 공통 추천 상품으로 진입
   </p>
-  <div class="circles-stage reveal">
-    <div class="circle-orbit o1"></div>
-    <div class="circle-orbit o2"></div>
-    <div class="center-circle">ShopMy</div>
-    <div class="satellite s1">Creator</div>
-    <div class="satellite s2">Brand</div>
-    <div class="satellite s3">Content</div>
-    <div class="satellite s4">Shopper</div>
-    <div class="satellite s5">Commission</div>
-    <div class="satellite s6">Insight</div>
-  </div>
 
-  <!-- Live web preview frame -->
-  <div class="web-preview reveal">
+  <!-- Phone frame: scrolling animation through circles_full -->
+  <div class="phone-frame reveal">
+    <div class="phone-screen scroll">
+      <img src="images/mobile_circles_full.jpg" alt="ShopMy Circles Discover - Full Page">
+    </div>
+  </div>
+  <p class="circles-cap" style="margin-top:14px;">
+    실제 화면 자동 스크롤 · 출처: shopmy.us/shop/discover/circles (2026.04.29 캡처)
+  </p>
+
+  <!-- Desktop wide capture for context -->
+  <div class="web-preview reveal" style="margin-top:24px;">
     <div class="browser-bar">
       <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
       <div class="url">shopmy.us/shop/discover/circles</div>
     </div>
-    <div class="ss-img" role="img" aria-label="ShopMy Circles Discover Page Screenshot"></div>
+    <img src="images/desktop_circles_top.jpg" alt="ShopMy Circles - Desktop View" style="width:100%; display:block;">
   </div>
-  <p class="circles-cap" style="margin-top:8px;">출처: ShopMy 公式 (shopmy.us/shop/discover/circles · App_GTM_Blog 비주얼)</p>
+  <p class="circles-cap" style="margin-top:8px;">
+    Desktop view: "Stylists" Circle 선택 시 해당 vertical 전문가 큐레이션 일괄 노출
+  </p>
+
+  <!-- Conceptual diagram — kept as secondary -->
+  <div style="margin-top:32px;">
+    <div class="section-tag" style="margin-bottom:8px;">Concept Diagram</div>
+    <p class="section-sub" style="margin-bottom:14px; font-size:12px;">위 실제 UI를 도식화 — Brand·Creator·Shopper 3者를 큐레이션 layer가 결합</p>
+    <div class="circles-stage reveal">
+      <div class="circle-orbit o1"></div>
+      <div class="circle-orbit o2"></div>
+      <div class="center-circle">ShopMy</div>
+      <div class="satellite s1">Creator</div>
+      <div class="satellite s2">Brand</div>
+      <div class="satellite s3">Content</div>
+      <div class="satellite s4">Shopper</div>
+      <div class="satellite s5">Commission</div>
+      <div class="satellite s6">Insight</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================== -->
+<!-- DISCOVER UI: Add to Circle (큐레이터 follow 액션) -->
+<!-- ========================================== -->
+<section>
+  <div class="section-tag">Discover Flow</div>
+  <h2 class="section-title reveal">"Add to Circle" — 큐레이터 follow 액션</h2>
+  <p class="section-sub reveal">
+    큐레이터 프로필 進入 즉시 <strong style="color:var(--ink)">"Favorite this curator by adding them to your first circle"</strong> 안내 노출 →
+    1-tap "Add to Circle" 버튼으로 즉시 lock-in. CTA 강화 + 첫 Circle 형성 onboarding 완결
+  </p>
+
+  <div class="capture-grid reveal-stagger">
+    <div class="capture-cell">
+      <img src="images/mobile_discover_top.jpg" alt="ShopMy Curator Discover - Add to Circle CTA" loading="lazy">
+      <div class="cap-label">Curator Profile · Add to Circle CTA</div>
+    </div>
+    <div class="capture-cell">
+      <img src="images/mobile_shop_top.jpg" alt="ShopMy Shop - Search less, discover more" loading="lazy">
+      <div class="cap-label">Shop Home · Create Your First Circle</div>
+    </div>
+  </div>
+  <p class="circles-cap" style="margin-top:12px;">
+    ★ 시사점: 단순 follow가 아닌 <strong>'Circle 그룹화'</strong> 구조 — 다중 큐레이터의 '집단 안목'을 한 단위로 묶어 신뢰 layer 강화
+  </p>
 </section>
 
 <!-- ========================================== -->
