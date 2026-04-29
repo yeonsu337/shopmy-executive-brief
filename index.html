@@ -32,7 +32,21 @@
     font-display: swap;
     src: url(https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/woff2/PretendardVariable.woff2) format('woff2-variations');
   }
+  /* ShopMy logo serif — Cormorant Garamond from Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap');
   img, video { max-width:100%; display:block; }
+
+  /* ShopMy brand wordmark */
+  .shopmy-logo {
+    font-family: 'Cormorant Garamond', 'EB Garamond', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: 26px;
+    letter-spacing: -0.005em;
+    line-height: 1;
+    display: inline-block;
+  }
+  .shopmy-logo .sm-1 { letter-spacing: -0.02em; }
+  .shopmy-logo .sm-2 { margin-left: 4px; }
 
   /* ===== STATUS BAR ===== */
   .statusbar {
@@ -66,9 +80,12 @@
   }
   .hero .eyebrow::before { content:''; width:5px; height:5px; background:var(--accent); border-radius:50%; }
   .hero h1 {
-    font-size: 30px; font-weight:800; line-height:1.18; letter-spacing:-0.025em;
-    margin-bottom: 14px;
+    font-size: 18px; font-weight:800; line-height:1.3; letter-spacing:-0.02em;
+    margin-bottom: 14px; white-space: nowrap; overflow: hidden;
+    text-overflow: ellipsis;
   }
+  @media (min-width: 380px) { .hero h1 { font-size: 19px; } }
+  @media (min-width: 420px) { .hero h1 { font-size: 21px; } }
   .hero h1 .accent { color: var(--accent); }
   .hero .lede {
     font-size: 14px; color: var(--sub); line-height:1.7;
@@ -90,6 +107,7 @@
     border-bottom: 1px solid var(--line);
   }
   .toc-title { font-size:10px; font-weight:800; letter-spacing:0.18em; color:var(--sub); text-transform:uppercase; margin-bottom:14px; }
+  .toc-title-ko { font-size:11px; font-weight:800; color:var(--ink); margin-bottom:14px; letter-spacing:-0.01em; }
   .toc-list { display:flex; flex-direction:column; gap:8px; }
   .toc-item {
     display:flex; align-items:center; gap:10px;
@@ -409,7 +427,10 @@
 <!-- ================= STATUS BAR ================= -->
 <div class="statusbar">
   <div class="row">
-    <div class="title">ShopMy 핵심 경쟁력 리포트</div>
+    <div class="title">
+      <span class="shopmy-logo" style="font-size:18px; vertical-align:middle;"><span class="sm-1">shop</span><span class="sm-2">my</span></span>
+      <span style="margin-left:8px; vertical-align:middle;">핵심 경쟁력 리포트</span>
+    </div>
     <div class="meta">CJ미래경영연구원 · 2026.04</div>
   </div>
   <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
@@ -417,13 +438,15 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero" style="border-bottom:none;">
-  <h1 class="reveal" style="margin-top:8px;">
-    인플루언서 어필리에이트 +<br>
-    <span class="accent">Curated Commerce</span>
+  <div class="reveal" style="margin-bottom:18px;">
+    <span class="shopmy-logo" style="font-size:32px; color:var(--ink);"><span class="sm-1">shop</span><span class="sm-2">my</span></span>
+  </div>
+  <h1 class="reveal" style="margin-top:0;">
+    인플루언서 어필리에이트 + <span class="accent">Curated Commerce</span>
   </h1>
   <p class="lede reveal">
-    '20년 NY 창업 5년만에 GMV $1B·기업가치 $1.5B 유니콘.<br>
-    Lululemon·Dior·Nordstrom 등 1,200+ brand를 18.5만 인플루언서와 직결시키는 인프라
+    '20년 美 창업 5년만에 GMV $1.3B · 기업가치 $1.5B 유니콘 등극.<br>
+    Lululemon·Dior·Nordstrom 등 <strong style="color:var(--ink)">1,200개+ 브랜드</strong>를 <strong style="color:var(--ink)">20만 인플루언서</strong>와 연결
   </p>
   <div class="keystats reveal">
     <div class="keystat"><div class="v">$1B<span class="unit"> GMV</span></div><div class="l">'25 연간</div></div>
@@ -434,9 +457,9 @@
 
 <!-- ================= TOC ================= -->
 <div class="toc">
-  <div class="toc-title">목차 · 4 sections</div>
+  <div class="toc-title">목차</div>
   <div class="toc-list">
-    <a href="#s1" class="toc-item"><div class="toc-num">1</div><div class="toc-text">ShopMy 어필리에이트가 뭔지?</div></a>
+    <a href="#s1" class="toc-item"><div class="toc-num">1</div><div class="toc-text">어필리에이트 비즈니스 모델</div></a>
     <a href="#s2" class="toc-item"><div class="toc-num">2</div><div class="toc-text">어떤 상품을 파는지?</div></a>
     <a href="#s3" class="toc-item"><div class="toc-num">3</div><div class="toc-text">ShopMy의 인플루언서</div></a>
     <a href="#s4" class="toc-item"><div class="toc-num">4</div><div class="toc-text">인플루언서에게 무엇을 제공?</div></a>
@@ -445,9 +468,9 @@
 
 <!-- ================= 1. AFFILIATE 정의 ================= -->
 <section id="s1">
-  <div class="section-tag">Section 01 · Definition</div>
+  <div class="section-tag" style="display:none;">Section 01</div>
   <h2 class="section-title reveal">
-    <span class="section-num">1</span>ShopMy 어필리에이트가 뭔지?
+    <span class="section-num">1</span>어필리에이트 비즈니스 모델
   </h2>
   <p class="section-sub reveal">
     인플루언서 SNS 콘텐츠 → 콘텐츠 內 제품 링크 클릭 → ShopMy 앱 / D2C 구매 페이지 연결 →
@@ -470,7 +493,7 @@
 
 <!-- ================= 2. 카테고리 ================= -->
 <section id="s2">
-  <div class="section-tag">Section 02 · Catalog</div>
+  <div class="section-tag" style="display:none;">Section 02</div>
   <h2 class="section-title reveal">
     <span class="section-num">2</span>어떤 상품을 파는지?
   </h2>
@@ -502,7 +525,7 @@
 
 <!-- ================= 3. ShopMy의 인플루언서 ================= -->
 <section id="s3">
-  <div class="section-tag">Section 03 · Curators</div>
+  <div class="section-tag" style="display:none;">Section 03</div>
   <h2 class="section-title reveal">
     <span class="section-num">3</span>ShopMy의 인플루언서
   </h2>
@@ -538,7 +561,7 @@
 
 <!-- ================= 4. 인플루언서에게 무엇 제공? ================= -->
 <section id="s4">
-  <div class="section-tag">Section 04 · Platform Tools</div>
+  <div class="section-tag" style="display:none;">Section 04</div>
   <h2 class="section-title reveal">
     <span class="section-num">4</span>인플루언서에게 무엇을 제공?
   </h2>
