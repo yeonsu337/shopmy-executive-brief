@@ -125,6 +125,36 @@
   .section-sub { font-size: 13px; color: var(--sub); margin-bottom: 28px; line-height:1.65; }
   .src-cap { font-size:10.5px; color:var(--sub); margin-top:10px; text-align:center; line-height:1.55; }
 
+  /* ===== SUB-BLOCK TITLE (Section 內 ① ② 구분) ===== */
+  .sub-block-title {
+    font-size: 16px; font-weight: 800;
+    letter-spacing: -0.015em;
+    margin-bottom: 6px;
+  }
+  .sub-block-sub {
+    font-size: 12px; color: var(--sub);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  /* ===== IMAGE BLOCK (제목 + 이미지) ===== */
+  .img-block {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .img-block-cap {
+    background: linear-gradient(180deg, #fafaf7 0%, #fff 100%);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 16px;
+    font-size: 11.5px; font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+  }
+  .img-block img {
+    width: 100%; display: block;
+  }
+
   /* ===== PHONE FRAME (auto-play video / scroll) ===== */
   .phone-frame {
     max-width: 320px; margin: 0 auto;
@@ -387,14 +417,13 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero" style="border-bottom:none;">
-  <div class="eyebrow">Executive Brief · QR Access</div>
-  <h1 class="reveal">
+  <h1 class="reveal" style="margin-top:8px;">
     인플루언서 어필리에이트 +<br>
     <span class="accent">Curated Commerce</span>
   </h1>
   <p class="lede reveal">
     '20년 NY 창업 5년만에 GMV $1B·기업가치 $1.5B 유니콘.<br>
-    Lululemon·Dior·Nordstrom 등 premium 1,200+ brand를 18.5만 인플루언서와 직결시키는 인프라
+    Lululemon·Dior·Nordstrom 등 1,200+ brand를 18.5만 인플루언서와 직결시키는 인프라
   </p>
   <div class="keystats reveal">
     <div class="keystat"><div class="v">$1B<span class="unit"> GMV</span></div><div class="l">'25 연간</div></div>
@@ -421,8 +450,8 @@
     <span class="section-num">1</span>ShopMy 어필리에이트가 뭔지?
   </h2>
   <p class="section-sub reveal">
-    인스타그램 콘텐츠 → 인플루언서 storefront 링크 클릭 → ShopMy 內 brand 구매 페이지 직결.
-    creator 추천 상품에 commission 자동 발생하는 <strong style="color:var(--ink)">전환 기반 commerce</strong>
+    인플루언서 SNS 콘텐츠 → 콘텐츠 內 제품 링크 클릭 → ShopMy 앱 / D2C 구매 페이지 연결 →
+    판매 시 인플루언서에 <strong style="color:var(--ink)">수수료 ~30% 지급</strong>
   </p>
 
   <div class="phone-frame reveal">
@@ -445,76 +474,29 @@
   <h2 class="section-title reveal">
     <span class="section-num">2</span>어떤 상품을 파는지?
   </h2>
-  <p class="section-sub reveal">
-    전 카테고리 commerce — Fashion 1.7M 압도적 우위 + Beauty 211K + Home 425K + Wellness 26K.
-    luxury·premium 중심·micro 카테고리까지 <strong style="color:var(--ink)">2.6M+ 상품</strong> 큐레이션
+  <!-- Sub-block A: 카테고리 -->
+  <h3 class="sub-block-title">카테고리</h3>
+  <p class="sub-block-sub">
+    패션·뷰티 <strong style="color:var(--accent)">80%</strong> · 웰니스·리빙·여행·F&amp;B <strong>20%</strong>
   </p>
 
-  <div class="phone-frame reveal">
-    <div class="live-tag"><span class="live-dot"></span>Auto-Cycle · 5 Cat</div>
-    <div class="cat-stage">
-      <div class="cat-bars">
-        <div class="cat-bar b1"></div>
-        <div class="cat-bar b2"></div>
-        <div class="cat-bar b3"></div>
-        <div class="cat-bar b4"></div>
-        <div class="cat-bar b5"></div>
-      </div>
-      <div class="cat-slide c1">
-        <span class="cat-label"><span class="ko">전체 · 2.6M+ 상품</span><span class="en">All Categories</span></span>
-        <img src="images/mobile_brands_top.jpg" alt="ShopMy All Categories" loading="lazy">
-      </div>
-      <div class="cat-slide c2">
-        <span class="cat-label"><span class="ko">패션·악세서리 · 1.7M</span><span class="en">Fashion &amp; Accessories</span></span>
-        <img src="images/mobile_cat_fashion_top.jpg" alt="ShopMy Fashion Category" loading="lazy">
-      </div>
-      <div class="cat-slide c3">
-        <span class="cat-label"><span class="ko">뷰티·퍼스널 케어 · 211K</span><span class="en">Beauty &amp; Personal Care</span></span>
-        <img src="images/mobile_cat_beauty_top.jpg" alt="ShopMy Beauty Category" loading="lazy">
-      </div>
-      <div class="cat-slide c4">
-        <span class="cat-label"><span class="ko">홈·리빙 · 425K</span><span class="en">Home &amp; Living</span></span>
-        <img src="images/mobile_cat_home_top.jpg" alt="ShopMy Home Category" loading="lazy">
-      </div>
-      <div class="cat-slide c5">
-        <span class="cat-label"><span class="ko">헬스·웰니스 · 25.9K</span><span class="en">Health &amp; Wellness</span></span>
-        <img src="images/mobile_cat_health_top.jpg" alt="ShopMy Health Wellness Category" loading="lazy">
-      </div>
-    </div>
+  <div class="img-block reveal">
+    <div class="img-block-cap">ShopMy 판매 상품군</div>
+    <img src="images/shopmy_products.jpg" alt="ShopMy Categories - Search less, discover more" loading="lazy">
   </div>
 
-  <!-- Brand marquee — 로컬 호스트·대중적 브랜드만 -->
-  <div class="brand-marquee reveal">
-    <div class="bm-track">
-      <div class="bm-tile"><img src="logos/dior.png" alt="Dior"></div>
-      <div class="bm-tile"><img src="logos/prada.png" alt="Prada"></div>
-      <div class="bm-tile"><img src="logos/chanel.png" alt="Chanel"></div>
-      <div class="bm-tile"><img src="logos/gucci.png" alt="Gucci"></div>
-      <div class="bm-tile"><img src="logos/burberry.png" alt="Burberry"></div>
-      <div class="bm-tile"><img src="logos/louisvuitton.png" alt="Louis Vuitton"></div>
-      <div class="bm-tile"><img src="logos/lululemon.png" alt="Lululemon"></div>
-      <div class="bm-tile"><img src="logos/nordstrom.png" alt="Nordstrom"></div>
-      <div class="bm-tile"><img src="logos/sephora.png" alt="Sephora"></div>
-      <div class="bm-tile"><img src="logos/anthropologie.png" alt="Anthropologie"></div>
-      <div class="bm-tile"><img src="logos/mac.png" alt="MAC"></div>
-      <!-- duplicate for seamless loop -->
-      <div class="bm-tile"><img src="logos/dior.png" alt=""></div>
-      <div class="bm-tile"><img src="logos/prada.png" alt=""></div>
-      <div class="bm-tile"><img src="logos/chanel.png" alt=""></div>
-      <div class="bm-tile"><img src="logos/gucci.png" alt=""></div>
-      <div class="bm-tile"><img src="logos/burberry.png" alt=""></div>
-      <div class="bm-tile"><img src="logos/louisvuitton.png" alt=""></div>
-      <div class="bm-tile"><img src="logos/lululemon.png" alt=""></div>
-      <div class="bm-tile"><img src="logos/nordstrom.png" alt=""></div>
-      <div class="bm-tile"><img src="logos/sephora.png" alt=""></div>
-      <div class="bm-tile"><img src="logos/anthropologie.png" alt=""></div>
-      <div class="bm-tile"><img src="logos/mac.png" alt=""></div>
-    </div>
+  <!-- Sub-block B: 브랜드 -->
+  <h3 class="sub-block-title" style="margin-top:36px;">브랜드</h3>
+  <p class="sub-block-sub">
+    프리미엄 명품 브랜드부터 인디 브랜드까지 <strong style="color:var(--ink)">폭넓게 보유</strong>
+  </p>
+
+  <div class="img-block reveal">
+    <img src="images/sajin1_brands.jpg" alt="ShopMy Premium Brand Collage - Prada, Gucci, Victoria Beckham, Everlane 등" loading="lazy">
   </div>
 
   <p class="src-cap">
-    출처: shopmy.us/shop/discover/categories · shopmy.us/brands 카테고리 nav 직접 인용 (2026.04.29 캡처)<br>
-    상품 數치는 ShopMy 公式 표기 그대로 (Fashion 1.7M·Home 425K·Beauty 211K·Health 25.9K 등)
+    출처: ShopMy 公式 (shopmy.us/shop/discover/categories) · 카테고리別 상품 數: Fashion 1.7M · Home 425K · Beauty 211K · Wellness 25.9K
   </p>
 </section>
 
@@ -525,53 +507,32 @@
     <span class="section-num">3</span>ShopMy의 인플루언서
   </h2>
   <p class="section-sub reveal">
-    팔로워 5만 이하 <strong style="color:var(--ink)">마이크로 인플루언서 20만 명 풀</strong> 보유.<br>
-    뷰티·패션·리빙 3 영역 / 30·40대 여성 핵심 타깃
+    누적 인플루언서 <strong style="color:var(--ink)">20만 명 보유</strong> (월 활성 7만 명).<br>
+    대부분 팔로워 <strong>5만 이하 마이크로 인플루언서</strong>로 구성
   </p>
 
-  <!-- Phone scroll demo of /shop/discover/curators -->
-  <div class="phone-frame reveal">
-    <div class="live-tag"><span class="live-dot"></span>Auto Scroll</div>
-    <div class="phone-screen scroll">
-      <img src="images/mobile_discover_curators_full.jpg" alt="ShopMy Curators Discover Page">
-    </div>
-  </div>
-  <p class="src-cap" style="margin-bottom: 22px;">
-    출처: shopmy.us/shop/discover/curators (2026.04.30 캡처)
+  <!-- Sub-block A: 버티컬 전문가 -->
+  <h3 class="sub-block-title">① 버티컬 전문가 인플루언서</h3>
+  <p class="sub-block-sub">
+    Dermatologists · Estheticians · Fashion Industry Insiders · Editors &amp; Buyers ·
+    Interior Design Experts · Mothers · Substackers 等 영역別 검증 전문가
   </p>
-
-  <!-- 3-column horizontal curator cards -->
-  <div class="micro-row reveal">
-    <div class="micro-card">
-      <img src="images/curator_shea.jpg" alt="Shea McGee" loading="lazy">
-      <div class="micro-info">
-        <span class="micro-tag mt-living">Living</span>
-        <div class="micro-name">Shea McGee</div>
-        <div class="micro-role">Studio McGee 인테리어 디자이너</div>
-        <div class="micro-trust">456K shoppers</div>
-      </div>
-    </div>
-    <div class="micro-card">
-      <img src="images/curator_joanna.jpg" alt="Joanna Czech" loading="lazy">
-      <div class="micro-info">
-        <span class="micro-tag mt-beauty">Beauty</span>
-        <div class="micro-name">Joanna Czech</div>
-        <div class="micro-role">35년 경력 NY 셀럽 에스테티션·자체 brand 창업</div>
-        <div class="micro-trust">Skincare 91 items</div>
-      </div>
-    </div>
-    <div class="micro-card">
-      <img src="images/curator_camila.jpg" alt="Camila Coelho" loading="lazy">
-      <div class="micro-info">
-        <span class="micro-tag mt-fashion">Fashion</span>
-        <div class="micro-name">Camila Coelho</div>
-        <div class="micro-role">Elaluz·Camila Coelho Collection 창업자·TIME100</div>
-        <div class="micro-trust">8.4K shoppers</div>
-      </div>
-    </div>
+  <div class="img-block reveal">
+    <img src="images/sajin2_vertical.jpg" alt="ShopMy Vertical Experts - Dermatologists, Estheticians, Editors & Buyers, etc." loading="lazy">
   </div>
+
+  <!-- Sub-block B: 마이크로 인플루언서 -->
+  <h3 class="sub-block-title" style="margin-top:36px;">② 마이크로 인플루언서</h3>
+  <p class="sub-block-sub">
+    Sofia Richie Grainge·Alexandra Leclerc·Elsa Hosk·Nara Smith·Kelly Wearstler·
+    Hailee Steinfeld·Ashley Graham·Karlie Kloss·Athena Calderone 等 실제 큐레이터
+  </p>
+  <div class="img-block reveal">
+    <img src="images/sajin2_micro.jpg" alt="ShopMy Featured Curators" loading="lazy">
+  </div>
+
   <p class="src-cap">
-    출처: shopmy.us/sheamcgee · /joannaczech · /camilacoelho (2026.04.29 캡처)
+    출처: ShopMy 公式 큐레이션 카테고리·Featured Curators 페이지
   </p>
 </section>
 
