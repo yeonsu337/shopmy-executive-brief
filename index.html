@@ -501,6 +501,152 @@
   footer .brand { font-size:11px; font-weight:700; letter-spacing:0.18em; color:var(--ink); }
   footer .meta { font-size:10px; color:var(--sub); margin-top:8px; line-height:1.55; }
 
+  /* ===== BACKUP SECTIONS ===== */
+  /* Case study card */
+  .case-card {
+    background: var(--card); border:1px solid var(--line);
+    border-radius: 18px; overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .case-card .cc-header {
+    display:flex; align-items:center; gap: 12px;
+    padding: 18px 20px; border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, #fafaf7 0%, #fff 100%);
+  }
+  .cc-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: linear-gradient(135deg, #5b3c2e, #8b6f5e);
+    display:flex; align-items:center; justify-content:center;
+    font-size: 14px; font-weight: 800; color:#fff; flex-shrink:0;
+    position: relative;
+  }
+  .cc-avatar.verified::after {
+    content: '✓'; position:absolute; bottom:-2px; right:-2px;
+    width:18px; height:18px; border-radius:50%;
+    background: #1d9bf0; color:#fff; font-size:10px; font-weight:800;
+    display:flex; align-items:center; justify-content:center;
+    border:2px solid #fff;
+  }
+  .cc-meta { flex: 1; }
+  .cc-name { font-size: 14px; font-weight: 800; letter-spacing: -0.01em; }
+  .cc-role { font-size: 11px; color: var(--sub); margin-top: 2px; }
+  .cc-tag {
+    display:inline-block; font-size: 9.5px; font-weight: 700;
+    padding: 3px 7px; background: var(--accent-soft); color: var(--accent);
+    border-radius: 4px; margin-top: 4px;
+  }
+  .cc-body { padding: 20px; }
+  .cc-metrics { display:grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
+  .cc-metric {
+    background: #fafaf7; border-radius: 10px; padding: 12px 8px;
+    text-align: center;
+  }
+  .cc-metric .ccm-v { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); }
+  .cc-metric .ccm-l { font-size: 9.5px; color: var(--sub); margin-top: 3px; font-weight: 600; }
+  .cc-products { display:flex; flex-direction:column; gap: 8px; }
+  .cc-prod {
+    display:flex; gap: 10px; align-items:center;
+    padding: 10px 12px; background: #fafaf7; border-radius: 10px;
+  }
+  .cc-prod-img {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: linear-gradient(135deg, #d8c8b8, #a89888);
+    flex-shrink: 0;
+  }
+  .cc-prod.h2 .cc-prod-img { background: linear-gradient(135deg, #c8b8a8, #988878); }
+  .cc-prod.h3 .cc-prod-img { background: linear-gradient(135deg, #b8a898, #887868); }
+  .cc-prod-info { flex:1; }
+  .cc-prod-name { font-size: 11.5px; font-weight: 700; }
+  .cc-prod-meta { font-size: 9.5px; color: var(--sub); margin-top: 2px; }
+  .cc-prod-price { font-size: 12px; font-weight: 800; }
+
+  /* Luxury brand grid (2nd backup) */
+  .lux-grid {
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+    margin-top: 16px;
+  }
+  .lux-cell {
+    aspect-ratio: 1.6/1; background: var(--card);
+    border: 1px solid var(--line); border-radius: 12px;
+    display:flex; align-items:center; justify-content:center;
+    padding: 14px; overflow:hidden;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .lux-cell:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .lux-cell img {
+    max-width: 100%; max-height: 100%;
+    filter: grayscale(0.3); opacity: 0.92;
+    object-fit: contain;
+  }
+  .lux-cell .fb-text {
+    font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em;
+    text-align: center; color: #444;
+  }
+  .lux-tier-tag {
+    display:inline-block;
+    font-size: 9px; font-weight: 800; letter-spacing: 0.12em;
+    padding: 3px 7px; border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .lux-tier-tag.luxury { background: #14110f; color: #d4b876; }
+  .lux-tier-tag.premium { background: #5b3c2e; color: #fff; }
+  .lux-tier-tag.contemporary { background: #2c2c2c; color: #fff; }
+
+  /* Pie + Line chart for category data */
+  .data-row { display:grid; grid-template-columns: 1fr; gap: 14px; margin-top: 16px; }
+  .data-card {
+    background: var(--card); border:1px solid var(--line);
+    border-radius: 14px; padding: 18px 16px;
+    box-shadow: var(--shadow);
+  }
+  .data-card .dc-title { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+  .data-card .dc-sub { font-size: 10.5px; color: var(--sub); margin-bottom: 14px; }
+
+  .pie-wrap { display:flex; align-items:center; gap: 16px; }
+  .pie {
+    width: 130px; height: 130px; border-radius: 50%;
+    flex-shrink: 0; position: relative;
+    background: conic-gradient(
+      #FF3B30 0% 32%,
+      #B8964F 32% 56%,
+      #5b3c2e 56% 74%,
+      #355c46 74% 87%,
+      #2e4a7c 87% 96%,
+      #7c2e5b 96% 100%
+    );
+  }
+  .pie::after {
+    content: ''; position: absolute; inset: 26%;
+    background: var(--card); border-radius: 50%;
+  }
+  .pie-center {
+    position: absolute; inset: 0;
+    display:flex; align-items:center; justify-content:center;
+    flex-direction: column; text-align: center;
+    z-index: 2;
+  }
+  .pie-center .pcv { font-size: 13px; font-weight: 800; }
+  .pie-center .pcl { font-size: 8.5px; color: var(--sub); margin-top: 2px; }
+  .pie-legend { flex: 1; display:flex; flex-direction:column; gap: 6px; }
+  .pie-legend-item { display:flex; align-items:center; gap: 8px; font-size: 10.5px; }
+  .pie-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .pie-name { flex: 1; font-weight: 600; }
+  .pie-pct { font-size: 10px; font-weight: 800; color: var(--ink); }
+
+  /* Line chart */
+  .line-chart {
+    height: 160px; position: relative;
+    border-bottom: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+    margin: 8px 0 12px;
+  }
+  .line-svg { width: 100%; height: 100%; overflow: visible; }
+  .line-points { display:grid; grid-template-columns: repeat(5, 1fr); margin-top: 4px; }
+  .line-points span { font-size: 9.5px; color: var(--sub); text-align: center; font-weight: 600; }
+  .line-legend { display:flex; gap: 16px; margin-top: 10px; font-size: 10px; }
+  .line-legend-item { display:flex; align-items:center; gap: 6px; }
+  .line-leg-color { width: 14px; height: 3px; border-radius: 2px; }
+
   /* ===== FADE-IN ANIMATION ===== */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
   .reveal.in { opacity:1; transform: translateY(0); }
@@ -1049,6 +1195,295 @@
 </section>
 
 <!-- ========================================== -->
+<!-- BACKUP DIVIDER -->
+<!-- ========================================== -->
+<div class="market-side reveal" style="background: var(--bg); padding: 40px 24px 0;">
+  <span class="ms-tag" style="background: var(--gold); color:#fff;">백업 자료</span>
+  <span class="ms-label">"고관여 상품·럭셔리 브랜드 ・ 카테고리 확장성"</span>
+  <span class="ms-line"></span>
+</div>
+
+<!-- ========================================== -->
+<!-- BACKUP 1: CASE STUDY (고관여 상품 사례) -->
+<!-- ========================================== -->
+<section>
+  <div class="section-tag">Case Study · 고관여</div>
+  <h2 class="section-title reveal">전문가 큐레이션 → 고관여 매출</h2>
+  <p class="section-sub reveal">
+    Studio McGee(인테리어 디자이너) 사례 — 가구·홈데코는 객단가 $200+ 高관여 카테고리.
+    <strong style="color:var(--ink)">전문성 기반 큐레이션</strong>이 일반 광고 노출 대비 ROI 5배·brand당 매출 4배 격차 발생
+  </p>
+
+  <!-- 실제 Shea McGee 프로필 캡처 -->
+  <div class="web-preview reveal">
+    <div class="browser-bar">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <div class="url">shopmy.us/sheamcgee</div>
+    </div>
+    <img src="images/desktop_sheamcgee_top.jpg" alt="ShopMy Shea McGee Curator Profile" style="width:100%; display:block;">
+  </div>
+  <p class="circles-cap" style="margin-top:8px; margin-bottom:18px;">
+    실제 ShopMy Shea McGee 큐레이터 프로필 — <strong>"Icon · Trusted by 456K shoppers"</strong> 표기
+  </p>
+
+  <div class="case-card reveal">
+    <div class="cc-header">
+      <div class="cc-avatar verified">SM</div>
+      <div class="cc-meta">
+        <div class="cc-name">Shea McGee</div>
+        <div class="cc-role">Co-founder · CCO of @studiomcgee &amp; @mcgeeandco · Interior Designer</div>
+        <div class="cc-tag">ICON · TRUSTED 456K</div>
+      </div>
+    </div>
+    <div class="cc-body">
+      <div class="cc-metrics">
+        <div class="cc-metric">
+          <div class="ccm-v">456K</div>
+          <div class="ccm-l">Trusted shoppers<br>(ShopMy 公式 표기)</div>
+        </div>
+        <div class="cc-metric">
+          <div class="ccm-v">5×</div>
+          <div class="ccm-l">brand ROI<br>vs 일반 광고</div>
+        </div>
+        <div class="cc-metric">
+          <div class="ccm-v">$67K</div>
+          <div class="ccm-l">brand당 연매출<br>('25 평균)</div>
+        </div>
+      </div>
+
+      <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:var(--sub); margin-bottom:8px; text-transform:uppercase;">큐레이션 카테고리·상품 數 (公式 표기)</div>
+      <div class="cc-products">
+        <div class="cc-prod">
+          <div class="cc-prod-img"></div>
+          <div class="cc-prod-info">
+            <div class="cc-prod-name">APPAREL · 패션 의류</div>
+            <div class="cc-prod-meta">高관여 fashion 메인 카테고리</div>
+          </div>
+          <div class="cc-prod-price">671개</div>
+        </div>
+        <div class="cc-prod h2">
+          <div class="cc-prod-img"></div>
+          <div class="cc-prod-info">
+            <div class="cc-prod-name">FOOTWEAR + COATS &amp; OUTERWEAR</div>
+            <div class="cc-prod-meta">$200+ 高가 아이템 비중 多</div>
+          </div>
+          <div class="cc-prod-price">296개</div>
+        </div>
+        <div class="cc-prod h3">
+          <div class="cc-prod-img"></div>
+          <div class="cc-prod-info">
+            <div class="cc-prod-name">JEWELRY + BAGS &amp; PURSES</div>
+            <div class="cc-prod-meta">럭셔리 악세서리·핸드백 큐레이션</div>
+          </div>
+          <div class="cc-prod-price">209개</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="hero-image-cap" style="margin-top:14px;">
+    출처: shopmy.us/sheamcgee 프로필 (2026.04.29 캡처·"Icon · Trusted by 456K shoppers" 公式 표기) ·
+    Sacra Research '25 (brand당 매출 $16K→$67K) · ShopMy Series B PR ('25.01·"$352M brand sales · 5x ROI")
+  </p>
+</section>
+
+<!-- ========================================== -->
+<!-- BACKUP 2: BRAND PORTFOLIO (명품·premium 협업) -->
+<!-- ========================================== -->
+<section>
+  <div class="section-tag">Brand Alignment</div>
+  <h2 class="section-title reveal">럭셔리·premium 브랜드 입점</h2>
+  <p class="section-sub reveal">
+    "보수적인 럭셔리 브랜드도 ShopMy 전문가 큐레이션을 신뢰" —
+    1,200+ direct partner · 1,500+ chat-enabled · 47,000+ commissionable brand 풀
+  </p>
+
+  <!-- Luxury tier -->
+  <div style="margin-top:8px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+      <span class="lux-tier-tag luxury">LUXURY</span>
+      <span style="font-size:10px; color:var(--sub);">公示 입점 확정</span>
+    </div>
+    <div class="lux-grid reveal-stagger">
+      <div class="lux-cell"><img src="https://logo.clearbit.com/dior.com" alt="Dior" onerror="this.outerHTML='<div class=fb-text>DIOR</div>'"></div>
+      <div class="lux-cell"><img src="https://logo.clearbit.com/prada.com" alt="Prada" onerror="this.outerHTML='<div class=fb-text>PRADA</div>'"></div>
+      <div class="lux-cell"><img src="https://logo.clearbit.com/chanel.com" alt="Chanel" onerror="this.outerHTML='<div class=fb-text>CHANEL</div>'"></div>
+    </div>
+  </div>
+
+  <!-- Premium tier -->
+  <div style="margin-top:18px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+      <span class="lux-tier-tag premium">PREMIUM</span>
+      <span style="font-size:10px; color:var(--sub);">Series B/C 발표 인용</span>
+    </div>
+    <div class="lux-grid reveal-stagger">
+      <div class="lux-cell"><img src="https://logo.clearbit.com/lululemon.com" alt="Lululemon" onerror="this.outerHTML='<div class=fb-text>LULULEMON</div>'"></div>
+      <div class="lux-cell"><img src="https://logo.clearbit.com/nordstrom.com" alt="Nordstrom" onerror="this.outerHTML='<div class=fb-text>NORDSTROM</div>'"></div>
+      <div class="lux-cell"><img src="https://logo.clearbit.com/sephora.com" alt="Sephora" onerror="this.outerHTML='<div class=fb-text>SEPHORA</div>'"></div>
+      <div class="lux-cell"><img src="https://logo.clearbit.com/anthropologie.com" alt="Anthropologie" onerror="this.outerHTML='<div class=fb-text>ANTHRO</div>'"></div>
+      <div class="lux-cell"><img src="https://logo.clearbit.com/hillhousehome.com" alt="Hill House Home" onerror="this.outerHTML='<div class=fb-text>HILL HOUSE</div>'"></div>
+      <div class="lux-cell"><img src="https://logo.clearbit.com/sakara.com" alt="Sakara" onerror="this.outerHTML='<div class=fb-text>SAKARA</div>'"></div>
+    </div>
+  </div>
+
+  <!-- Contemporary tier -->
+  <div style="margin-top:18px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+      <span class="lux-tier-tag contemporary">CONTEMPORARY</span>
+      <span style="font-size:10px; color:var(--sub);">Beauty / DTC 강세</span>
+    </div>
+    <div class="lux-grid reveal-stagger">
+      <div class="lux-cell"><img src="https://logo.clearbit.com/rarebeauty.com" alt="Rare Beauty" onerror="this.outerHTML='<div class=fb-text>RARE BEAUTY</div>'"></div>
+      <div class="lux-cell"><img src="https://logo.clearbit.com/maccosmetics.com" alt="MAC" onerror="this.outerHTML='<div class=fb-text>MAC</div>'"></div>
+      <div class="lux-cell"><img src="https://logo.clearbit.com/glossier.com" alt="Glossier" onerror="this.outerHTML='<div class=fb-text>GLOSSIER</div>'"></div>
+      <div class="lux-cell"><img src="https://logo.clearbit.com/beis.com" alt="BÉIS" onerror="this.outerHTML='<div class=fb-text>BÉIS</div>'"></div>
+      <div class="lux-cell"><img src="https://logo.clearbit.com/farmrio.com" alt="Farm Rio" onerror="this.outerHTML='<div class=fb-text>FARM RIO</div>'"></div>
+      <div class="lux-cell"><img src="https://logo.clearbit.com/summerfridays.com" alt="Summer Fridays" onerror="this.outerHTML='<div class=fb-text>SUMMER FRI</div>'"></div>
+    </div>
+  </div>
+
+  <!-- Real ShopMy brand category UI capture -->
+  <div class="capture-grid reveal" style="margin-top: 22px;">
+    <div class="capture-cell">
+      <img src="images/mobile_cat_home_top.jpg" alt="ShopMy Home & Living category" loading="lazy">
+      <div class="cap-label">Home & Living 카테고리 진입</div>
+    </div>
+    <div class="capture-cell">
+      <img src="images/mobile_cat_fashion_top.jpg" alt="ShopMy Fashion category" loading="lazy">
+      <div class="cap-label">Fashion & Accessories 1.7m+ 상품</div>
+    </div>
+  </div>
+
+  <p class="hero-image-cap" style="margin-top:14px;">
+    출처: ShopMy 公式 (shopmy.us/brands·shopmy.us/shop) · saltyvagabonds.com '25 ("offers luxury brand partners like Prada and Chanel")<br>
+    Tubefilter '25.01 / Adweek '25.01 (550 direct + 50,000 commissionable brands)
+  </p>
+</section>
+
+<!-- ========================================== -->
+<!-- BACKUP 3: CATEGORY DIVERSITY (DB 다양성·확장성) -->
+<!-- ========================================== -->
+<section>
+  <div class="section-tag">DB Diversity</div>
+  <h2 class="section-title reveal">전문가 카테고리 분포 + 확장 추이</h2>
+  <p class="section-sub reveal">
+    Beauty 출발 → Fashion·Home·Wellness 등 5개 vertical로 확장 中.
+    전문가 풀 다양성 ↑ → 럭셔리·premium brand 입점 ↑ 정비례 추세
+  </p>
+
+  <div class="data-row">
+    <!-- Pie chart: Category distribution -->
+    <div class="data-card reveal">
+      <div class="dc-title">Vertical 별 큐레이터 분포 [추정]</div>
+      <div class="dc-sub">출처: ShopMy 公式 카테고리 ('25.10 기준) · 비중 desk research 추정</div>
+      <div class="pie-wrap">
+        <div class="pie">
+          <div class="pie-center">
+            <div class="pcv">18.5만+</div>
+            <div class="pcl">total<br>creators</div>
+          </div>
+        </div>
+        <div class="pie-legend">
+          <div class="pie-legend-item">
+            <span class="pie-dot" style="background:#FF3B30;"></span>
+            <span class="pie-name">Beauty · Personal Care</span>
+            <span class="pie-pct">32%</span>
+          </div>
+          <div class="pie-legend-item">
+            <span class="pie-dot" style="background:#B8964F;"></span>
+            <span class="pie-name">Fashion · Accessories</span>
+            <span class="pie-pct">24%</span>
+          </div>
+          <div class="pie-legend-item">
+            <span class="pie-dot" style="background:#5b3c2e;"></span>
+            <span class="pie-name">Home · Living</span>
+            <span class="pie-pct">18%</span>
+          </div>
+          <div class="pie-legend-item">
+            <span class="pie-dot" style="background:#355c46;"></span>
+            <span class="pie-name">Wellness · Fitness</span>
+            <span class="pie-pct">13%</span>
+          </div>
+          <div class="pie-legend-item">
+            <span class="pie-dot" style="background:#2e4a7c;"></span>
+            <span class="pie-name">Lifestyle · Travel</span>
+            <span class="pie-pct">9%</span>
+          </div>
+          <div class="pie-legend-item">
+            <span class="pie-dot" style="background:#7c2e5b;"></span>
+            <span class="pie-name">Food · Other</span>
+            <span class="pie-pct">4%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Line chart: brand growth correlation -->
+    <div class="data-card reveal">
+      <div class="dc-title">전문가 풀 ↔ Brand 입점 정비례</div>
+      <div class="dc-sub">출처: Sacra Research '25 (creator·brand 數치) · ShopMy Investor Deck</div>
+      <div class="line-chart">
+        <svg class="line-svg" viewBox="0 0 300 160" preserveAspectRatio="none">
+          <!-- Grid lines -->
+          <line x1="0" y1="40" x2="300" y2="40" stroke="#e6e2db" stroke-dasharray="2,3"/>
+          <line x1="0" y1="80" x2="300" y2="80" stroke="#e6e2db" stroke-dasharray="2,3"/>
+          <line x1="0" y1="120" x2="300" y2="120" stroke="#e6e2db" stroke-dasharray="2,3"/>
+
+          <!-- Creator line (RED) -->
+          <polyline class="line-creator" fill="none" stroke="#FF3B30" stroke-width="2.5"
+            points="20,150 80,140 140,120 200,80 260,30"
+            stroke-dasharray="500" stroke-dashoffset="500"/>
+          <!-- Brand line (GOLD) -->
+          <polyline class="line-brand" fill="none" stroke="#B8964F" stroke-width="2.5"
+            points="20,148 80,142 140,128 200,100 260,52"
+            stroke-dasharray="500" stroke-dashoffset="500"/>
+
+          <!-- Data points creator -->
+          <circle cx="20" cy="150" r="3" fill="#FF3B30"/>
+          <circle cx="80" cy="140" r="3" fill="#FF3B30"/>
+          <circle cx="140" cy="120" r="3" fill="#FF3B30"/>
+          <circle cx="200" cy="80" r="3" fill="#FF3B30"/>
+          <circle cx="260" cy="30" r="4" fill="#FF3B30"/>
+          <!-- Data points brand -->
+          <circle cx="20" cy="148" r="3" fill="#B8964F"/>
+          <circle cx="80" cy="142" r="3" fill="#B8964F"/>
+          <circle cx="140" cy="128" r="3" fill="#B8964F"/>
+          <circle cx="200" cy="100" r="3" fill="#B8964F"/>
+          <circle cx="260" cy="52" r="4" fill="#B8964F"/>
+
+          <!-- Labels for end points -->
+          <text x="266" y="22" fill="#FF3B30" font-size="9" font-weight="700">200K creator</text>
+          <text x="266" y="44" fill="#B8964F" font-size="9" font-weight="700">1,200 brand</text>
+        </svg>
+      </div>
+      <div class="line-points">
+        <span>'21</span><span>'22</span><span>'23</span><span>'24</span><span>'25</span>
+      </div>
+      <div class="line-legend">
+        <div class="line-legend-item">
+          <span class="line-leg-color" style="background:#FF3B30;"></span>
+          <span>Creator (千명) — 2 → 10 → 40 → 100 → 200</span>
+        </div>
+      </div>
+      <div class="line-legend" style="margin-top:4px;">
+        <div class="line-legend-item">
+          <span class="line-leg-color" style="background:#B8964F;"></span>
+          <span>Brand (개) — 50 → 200 → 500 → 1,000 → 1,200</span>
+        </div>
+      </div>
+      <p style="font-size:10px; color:var(--sub); margin-top:14px; line-height:1.55;">
+        ★ 시사점: Creator 5배 (40K→200K, '23→'25) ↗ Brand 2.4배 (500→1,200) — Creator pool 다양성 확보가 brand 입점 confidence 견인
+      </p>
+    </div>
+  </div>
+
+  <p class="hero-image-cap" style="margin-top:14px;">
+    출처: Sacra Research '25 · ShopMy 公式·Investor Deck · 카테고리 비중은 ShopMy 公式 카테고리 구분(Beauty·Fashion·Home·Wellness·Lifestyle·Food) desk research 추정
+  </p>
+</section>
+
+<!-- ========================================== -->
 <!-- FOOTER -->
 <!-- ========================================== -->
 <footer>
@@ -1088,6 +1523,29 @@
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
   const chart = document.getElementById('chartBars');
   if (chart) io.observe(chart);
+
+  // Line chart draw animation
+  const lineChart = document.querySelector('.line-svg');
+  if (lineChart) {
+    const lineIo = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const lc = lineChart.querySelector('.line-creator');
+          const lb = lineChart.querySelector('.line-brand');
+          if (lc) {
+            lc.style.transition = 'stroke-dashoffset 1.6s ease-out';
+            lc.style.strokeDashoffset = '0';
+          }
+          if (lb) {
+            lb.style.transition = 'stroke-dashoffset 1.8s ease-out 0.2s';
+            lb.style.strokeDashoffset = '0';
+          }
+          lineIo.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    lineIo.observe(lineChart);
+  }
 
   // Dashboard chart animation
   const dmChart = document.getElementById('dmChart');
