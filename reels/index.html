@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopMy 영상</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#000; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+video { width:100%; max-width:480px; max-height:100vh; display:block; }
+</style>
+</head>
+<body>
+<video autoplay muted loop playsinline controls>
+  <source src="../videos/video_a_affiliate.mp4" type="video/mp4">
+</video>
+<script>
+document.querySelector('video').play().catch(()=>{});
+</script>
+</body>
+</html>
