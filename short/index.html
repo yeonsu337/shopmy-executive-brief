@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1a1a1a">
+<title>ShopMy 핵심 경쟁력 리포트 | CJ미래경영연구원</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  :root {
+    --bg: #fafaf7;
+    --ink: #0e0e0e;
+    --sub: #6b6b6b;
+    --line: #e6e2db;
+    --accent: #FF3B30;
+    --accent-soft: #FFF1EF;
+    --gold: #B8964F;
+    --card: #ffffff;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+  }
+  html, body { background:var(--bg); color:var(--ink); }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Segoe UI', sans-serif;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+    padding-bottom: 80px;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    font-weight: 100 900;
+    font-display: swap;
+    src: url(https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/woff2/PretendardVariable.woff2) format('woff2-variations');
+  }
+  /* ShopMy logo serif — Cormorant Garamond from Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap');
+  img, video { max-width:100%; display:block; }
+
+  /* ShopMy brand wordmark */
+  .shopmy-logo {
+    font-family: 'Cormorant Garamond', 'EB Garamond', 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: 26px;
+    letter-spacing: -0.005em;
+    line-height: 1;
+    display: inline-block;
+  }
+  .shopmy-logo .sm-1 { letter-spacing: -0.02em; }
+  .shopmy-logo .sm-2 { margin-left: 4px; }
+
+  /* ===== STATUS BAR ===== */
+  .statusbar {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    background: rgba(250,250,247,0.92);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 20px 10px;
+  }
+  .statusbar .row { display:flex; align-items:center; justify-content:space-between; }
+  .statusbar .title { font-size: 12px; font-weight:600; }
+  .statusbar .meta { font-size: 10.5px; color:var(--sub); font-weight:500; }
+  .progress { height:2px; background: var(--line); margin-top:10px; border-radius:2px; overflow:hidden; }
+  .progress-fill { height:100%; width:0%; background: var(--accent); transition: width .15s linear; }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 88px 24px 48px;
+    background:
+      radial-gradient(120% 80% at 100% 0%, rgba(255,59,48,0.08) 0%, transparent 50%),
+      radial-gradient(80% 60% at 0% 100%, rgba(184,150,79,0.06) 0%, transparent 50%),
+      var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .eyebrow {
+    display:inline-flex; align-items:center; gap:6px;
+    font-size: 10.5px; font-weight:600; letter-spacing: 0.12em;
+    color: var(--accent); text-transform: uppercase;
+    padding: 6px 10px; border:1px solid var(--accent); border-radius: 100px;
+    margin-bottom: 22px;
+  }
+  .hero .eyebrow::before { content:''; width:5px; height:5px; background:var(--accent); border-radius:50%; }
+  .hero h1 {
+    font-size: 18px; font-weight:800; line-height:1.3; letter-spacing:-0.02em;
+    margin-bottom: 14px; white-space: nowrap; overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  @media (min-width: 380px) { .hero h1 { font-size: 19px; } }
+  @media (min-width: 420px) { .hero h1 { font-size: 21px; } }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .lede {
+    font-size: 14px; color: var(--sub); line-height:1.7;
+    margin-bottom: 24px;
+  }
+  .keystats { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .keystat {
+    background: var(--card); border:1px solid var(--line);
+    padding: 14px 10px; border-radius: 14px; text-align: center;
+  }
+  .keystat .v { font-size:18px; font-weight:800; letter-spacing:-0.02em; }
+  .keystat .v .unit { font-size:10.5px; font-weight:600; color:var(--sub); }
+  .keystat .l { font-size:10px; color:var(--sub); margin-top:2px; font-weight:500; }
+
+  /* ===== TOC ===== */
+  .toc {
+    padding: 28px 24px;
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+  }
+  .toc-title { font-size:10px; font-weight:800; letter-spacing:0.18em; color:var(--sub); text-transform:uppercase; margin-bottom:14px; }
+  .toc-title-ko { font-size:11px; font-weight:800; color:var(--ink); margin-bottom:14px; letter-spacing:-0.01em; }
+  .toc-list { display:flex; flex-direction:column; gap:8px; }
+  .toc-item {
+    display:flex; align-items:center; gap:10px;
+    padding: 10px 12px; border:1px solid var(--line);
+    border-radius: 10px; text-decoration:none; color: var(--ink);
+  }
+  .toc-num {
+    width:24px; height:24px; border-radius:50%;
+    background: var(--accent); color:#fff;
+    font-size: 11px; font-weight: 800;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink: 0;
+  }
+  .toc-text { font-size: 12.5px; font-weight: 700; flex: 1; }
+
+  /* ===== SECTION COMMON ===== */
+  section { padding: 56px 24px; border-bottom:1px solid var(--line); scroll-margin-top: 64px; }
+  .section-tag {
+    display:inline-block; font-size:10px; font-weight:800; letter-spacing:0.18em;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 8px;
+  }
+  .section-num {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:30px; height:30px; border-radius: 8px;
+    background: var(--accent); color:#fff;
+    font-size: 13px; font-weight: 800;
+    margin-right: 10px; vertical-align: middle;
+  }
+  .section-title {
+    font-size: 22px; font-weight:800; line-height:1.25; letter-spacing:-0.02em;
+    margin-bottom: 10px;
+  }
+  .section-sub { font-size: 13px; color: var(--sub); margin-bottom: 28px; line-height:1.65; }
+  .src-cap { font-size:10.5px; color:var(--sub); margin-top:10px; text-align:center; line-height:1.55; }
+
+  /* ===== SUB-BLOCK TITLE (Section 內 ① ② 구분) ===== */
+  .sub-block-title {
+    font-size: 16px; font-weight: 800;
+    letter-spacing: -0.015em;
+    margin-bottom: 6px;
+  }
+  .sub-block-sub {
+    font-size: 12px; color: var(--sub);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  /* ===== IMAGE BLOCK (제목 + 이미지) ===== */
+  .img-block {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .img-block-cap {
+    background: linear-gradient(180deg, #fafaf7 0%, #fff 100%);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 16px;
+    font-size: 11.5px; font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+  }
+  .img-block img {
+    width: 100%; display: block;
+  }
+
+  /* ===== PHONE FRAME (auto-play video / scroll) ===== */
+  .phone-frame {
+    max-width: 320px; margin: 0 auto;
+    background: #14110f; border-radius: 36px; padding: 12px 8px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.18), 0 0 0 1px #2a2622;
+    position: relative;
+  }
+  .phone-frame::before {
+    content:''; position:absolute; top:18px; left:50%; transform:translateX(-50%);
+    width: 90px; height: 26px; border-radius: 14px; background: #14110f;
+    z-index: 5;
+  }
+  .phone-screen {
+    border-radius: 24px; overflow:hidden; background:#fff;
+    aspect-ratio: 9/19.5; position: relative;
+  }
+  .phone-screen video {
+    width:100%; height:100%; object-fit: cover; display:block;
+  }
+  .phone-screen.scroll img {
+    position:absolute; top:0; left:0; width:100%;
+    animation: scrollDemo 22s ease-in-out infinite;
+  }
+  @keyframes scrollDemo {
+    0%, 6% { transform: translateY(0); }
+    28%, 36% { transform: translateY(-25%); }
+    58%, 66% { transform: translateY(-55%); }
+    88%, 100% { transform: translateY(0); }
+  }
+
+  /* Live indicator on phone */
+  .live-tag {
+    position: absolute; top: 24px; left: 50%; transform: translateX(-50%);
+    z-index: 10;
+    background: rgba(255,59,48,0.94); color: #fff;
+    font-size: 10px; font-weight: 800;
+    padding: 4px 10px; border-radius: 100px;
+    display: inline-flex; align-items: center; gap: 5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .live-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: #fff;
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ===== CATEGORY SLIDESHOW (5-cycle) ===== */
+  .cat-stage {
+    position: relative;
+    aspect-ratio: 9/19.5;
+    background: #fff;
+    border-radius: 24px; overflow:hidden;
+  }
+  .cat-slide {
+    position:absolute; inset:0; opacity: 0;
+    animation: catCycle 20s linear infinite;
+  }
+  .cat-slide img { width:100%; height:100%; object-fit: cover; display:block; }
+  .cat-slide.c1 { animation-delay: 0s; }
+  .cat-slide.c2 { animation-delay: 4s; }
+  .cat-slide.c3 { animation-delay: 8s; }
+  .cat-slide.c4 { animation-delay: 12s; }
+  .cat-slide.c5 { animation-delay: 16s; }
+  @keyframes catCycle {
+    0%, 17% { opacity: 1; }
+    20%, 100% { opacity: 0; }
+  }
+  .cat-label {
+    position:absolute; top: 60px; left: 50%; transform: translateX(-50%);
+    z-index: 10;
+    background: rgba(20,17,15,0.88); color: #fff;
+    font-size: 11px; font-weight: 700;
+    padding: 6px 14px; border-radius: 100px;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(8px);
+    text-align: center; white-space: nowrap;
+  }
+  .cat-label .ko { font-size: 12px; }
+  .cat-label .en { font-size: 9px; opacity: 0.7; margin-top: 1px; display:block; font-weight: 500; }
+  .cat-bars {
+    position: absolute; bottom: 18px; left: 16px; right: 16px;
+    z-index: 10; display: flex; gap: 4px;
+  }
+  .cat-bar {
+    flex: 1; height: 3px; background: rgba(255,255,255,0.35);
+    border-radius: 2px; overflow: hidden; position: relative;
+  }
+  .cat-bar::after {
+    content:''; position:absolute; inset:0; background:#fff;
+    transform-origin: left; animation: barFill 20s linear infinite;
+  }
+  .cat-bar.b1::after { animation-delay: 0s; }
+  .cat-bar.b2::after { animation-delay: 4s; }
+  .cat-bar.b3::after { animation-delay: 8s; }
+  .cat-bar.b4::after { animation-delay: 12s; }
+  .cat-bar.b5::after { animation-delay: 16s; }
+  @keyframes barFill {
+    0% { transform: scaleX(0); }
+    20% { transform: scaleX(1); }
+    20.01%, 100% { transform: scaleX(0); }
+  }
+
+  /* ===== BRAND MARQUEE ===== */
+  .brand-marquee {
+    margin-top: 16px;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    background: var(--card); border:1px solid var(--line);
+    border-radius: 14px; padding: 16px 0;
+  }
+  .bm-track {
+    display: flex; gap: 14px;
+    animation: marquee 30s linear infinite;
+    width: max-content;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .bm-tile {
+    width: 88px; height: 50px; flex-shrink: 0;
+    background: #fafaf7; border: 1px solid var(--line);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 8px;
+  }
+  .bm-tile img { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(0.3); }
+  .bm-fb { font-size: 9px; font-weight: 800; letter-spacing: 0.06em; text-align: center; }
+
+  /* ===== MICRO-INFLUENCER PHOTO CARDS (가로 3-column) ===== */
+  .micro-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    margin-top: 10px;
+  }
+  .micro-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; overflow:hidden;
+    box-shadow: var(--shadow);
+    display: flex; flex-direction: column;
+  }
+  .micro-card img { width:100%; aspect-ratio: 1/1; object-fit: cover; display:block; }
+  .micro-info { padding: 10px 8px 12px; flex: 1; display: flex; flex-direction: column; }
+  .micro-tag {
+    display: inline-block;
+    font-size: 8.5px; font-weight: 800; letter-spacing: 0.1em;
+    color: #fff; text-transform: uppercase;
+    padding: 2px 6px; border-radius: 3px; margin-bottom: 6px;
+    align-self: flex-start;
+  }
+  .mt-living { background: #5b3c2e; }
+  .mt-beauty { background: #7c2e5b; }
+  .mt-fashion { background: #2c2c2c; }
+  .micro-name { font-size: 12px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.2; }
+  .micro-role { font-size: 9.5px; color: var(--sub); margin-top: 4px; line-height: 1.4; flex: 1; }
+  .micro-trust {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 9.5px; font-weight: 700; color: var(--accent);
+    margin-top: 8px; line-height: 1.2;
+  }
+  .micro-trust::before {
+    content: '✓'; width: 14px; height: 14px; border-radius: 50%;
+    background: #1d9bf0; color: #fff; font-size: 8px; font-weight: 800;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ===== MATCHING DIAGRAM ===== */
+  .match-stage {
+    background: var(--card); border:1px solid var(--line);
+    border-radius: 18px; padding: 28px 18px;
+    box-shadow: var(--shadow);
+  }
+  .match-flow {
+    display:grid; grid-template-columns: 1fr auto 1fr;
+    gap: 14px; align-items: center;
+  }
+  .match-col {
+    display: flex; flex-direction: column; gap: 8px;
+    padding: 12px 8px; background: #fafaf7; border-radius: 12px;
+    text-align: center;
+  }
+  .match-col .mc-label { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; color: var(--sub); text-transform: uppercase; margin-bottom: 4px; }
+  .match-col .mc-item {
+    font-size: 11px; font-weight: 700; padding: 7px 8px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 8px; line-height: 1.3;
+  }
+  .match-col.brands .mc-item { color: var(--gold); border-color: var(--gold); }
+  .match-col.creators .mc-item { color: var(--accent); border-color: var(--accent); }
+  .match-arrow {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    color: var(--accent);
+  }
+  .match-arrow .ma-icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 800;
+    box-shadow: 0 4px 12px rgba(255,59,48,0.3);
+    animation: pulse-match 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse-match {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(255,59,48,0.3); }
+    50% { transform: scale(1.08); box-shadow: 0 4px 20px rgba(255,59,48,0.5); }
+  }
+  .match-arrow .ma-text {
+    font-size: 9px; font-weight: 800; color: var(--accent);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-align: center; line-height: 1.2;
+  }
+  .match-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line);
+  }
+  .match-stat {
+    text-align: center;
+  }
+  .match-stat .ms-v { font-size: 16px; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
+  .match-stat .ms-l { font-size: 9.5px; color: var(--sub); margin-top: 2px; font-weight: 600; }
+
+  /* ===== DASHBOARD IMAGE ===== */
+  .dashboard-real {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .dashboard-real img { width:100%; display:block; }
+  .dashboard-cap {
+    background: #fafaf7; padding: 12px 16px;
+    font-size: 11px; color: var(--sub); border-top: 1px solid var(--line);
+    line-height: 1.5;
+  }
+  .dashboard-cap strong { color: var(--ink); font-weight: 700; }
+
+  /* ===== FOOTER ===== */
+  footer { padding: 32px 24px 56px; text-align:center; }
+  footer .brand { font-size:11px; font-weight:700; letter-spacing:0.18em; color:var(--ink); }
+  footer .meta { font-size:10px; color:var(--sub); margin-top:8px; line-height:1.55; }
+
+  /* ===== FADE-IN ===== */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity:1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ================= STATUS BAR ================= -->
+<div class="statusbar">
+  <div class="row">
+    <div class="title">
+      <span class="shopmy-logo" style="font-size:18px; vertical-align:middle;"><span class="sm-1">shop</span><span class="sm-2">my</span></span>
+      <span style="margin-left:8px; vertical-align:middle;">핵심 경쟁력 리포트</span>
+    </div>
+    <div class="meta">CJ미래경영연구원 · 2026.04</div>
+  </div>
+  <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" style="border-bottom:none;">
+  <div class="reveal" style="margin-bottom:18px;">
+    <span class="shopmy-logo" style="font-size:32px; color:var(--ink);"><span class="sm-1">shop</span><span class="sm-2">my</span></span>
+  </div>
+  <h1 class="reveal" style="margin-top:0;">
+    인플루언서 어필리에이트 + <span class="accent">Curated Commerce</span>
+  </h1>
+  <p class="lede reveal">
+    '20년 美 창업 5년만에 GMV $1.3B · 기업가치 $1.5B 유니콘 등극.<br>
+    Lululemon·Dior·Nordstrom 등 <strong style="color:var(--ink)">1,200개+ 브랜드</strong>를 <strong style="color:var(--ink)">20만 인플루언서</strong>와 연결
+  </p>
+  <div class="keystats reveal">
+    <div class="keystat"><div class="v">$1B<span class="unit"> GMV</span></div><div class="l">'25 연간</div></div>
+    <div class="keystat"><div class="v">$1.5B<span class="unit"> Val</span></div><div class="l">'25.10 Series C</div></div>
+    <div class="keystat"><div class="v">+196<span class="unit">% YoY</span></div><div class="l">매출 성장</div></div>
+  </div>
+</section>
+
+<!-- ================= TOC ================= -->
+<div class="toc">
+  <div class="toc-title">목차</div>
+  <div class="toc-list">
+    <a href="#s1" class="toc-item"><div class="toc-num">1</div><div class="toc-text">어필리에이트 비즈니스 모델</div></a>
+    <a href="#s2" class="toc-item"><div class="toc-num">2</div><div class="toc-text">판매 상품 및 브랜드</div></a>
+    <a href="#s3" class="toc-item"><div class="toc-num">3</div><div class="toc-text">ShopMy의 인플루언서</div></a>
+  </div>
+</div>
+
+<!-- ================= 1. AFFILIATE 정의 ================= -->
+<section id="s1">
+  <div class="section-tag" style="display:none;">Section 01</div>
+  <h2 class="section-title reveal">
+    <span class="section-num">1</span>어필리에이트 비즈니스 모델
+  </h2>
+  <p class="section-sub reveal">
+    인플루언서 SNS 콘텐츠 → 콘텐츠 內 제품 링크 클릭 → ShopMy 앱 / D2C 구매 페이지 연결 →
+    판매 시 인플루언서에 <strong style="color:var(--ink)">수수료 ~30% 지급</strong>
+  </p>
+
+  <div class="phone-frame reveal">
+    <div class="live-tag"><span class="live-dot"></span>Live Demo</div>
+    <div class="phone-screen">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="../videos/video_a_affiliate.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <p class="src-cap">
+    출처: 실제 ShopMy 인플루언서 Instagram Reel 2건 짜깁기 (10초)<br>
+    ① ShopMy 서비스 설명 (instagram.com/reel/DIeuHNOJGnO) ② 실제 활용 사례 (instagram.com/reel/DMiGtNQx_yY)
+  </p>
+</section>
+
+<!-- ================= 2. 카테고리 ================= -->
+<section id="s2">
+  <div class="section-tag" style="display:none;">Section 02</div>
+  <h2 class="section-title reveal">
+    <span class="section-num">2</span>판매 상품 및 브랜드
+  </h2>
+  <!-- Sub-block A: 카테고리 -->
+  <h3 class="sub-block-title">카테고리</h3>
+  <p class="sub-block-sub">
+    패션·뷰티 <strong style="color:var(--accent)">80%</strong> · 웰니스·리빙·여행·F&amp;B <strong>20%</strong>
+  </p>
+
+  <div class="img-block reveal">
+    <div class="img-block-cap">ShopMy 판매 상품군</div>
+    <img src="../images/shopmy_products.jpg" alt="ShopMy Categories - Search less, discover more" loading="lazy">
+  </div>
+
+  <!-- Sub-block B: 브랜드 -->
+  <h3 class="sub-block-title" style="margin-top:36px;">브랜드</h3>
+  <p class="sub-block-sub">
+    프리미엄 명품 브랜드부터 인디 브랜드까지 <strong style="color:var(--ink)">폭넓게 보유</strong>
+  </p>
+
+  <div class="img-block reveal">
+    <img src="../images/sajin1_brands.jpg" alt="ShopMy Premium Brand Collage - Prada, Gucci, Victoria Beckham, Everlane 등" loading="lazy">
+  </div>
+
+  <p class="src-cap">
+    출처: ShopMy 公式 (shopmy.us/shop/discover/categories) · 카테고리別 상품 數: Fashion 1.7M · Home 425K · Beauty 211K · Wellness 25.9K
+  </p>
+</section>
+
+<!-- ================= 3. ShopMy의 인플루언서 ================= -->
+<section id="s3">
+  <div class="section-tag" style="display:none;">Section 03</div>
+  <h2 class="section-title reveal">
+    <span class="section-num">3</span>ShopMy의 인플루언서
+  </h2>
+  <p class="section-sub reveal">
+    누적 인플루언서 <strong style="color:var(--ink)">20만 명 보유</strong> (월 활성 7만 명).<br>
+    대부분 팔로워 <strong>5만 이하 마이크로 인플루언서</strong>로 구성
+  </p>
+
+  <!-- Sub-block A: 버티컬 전문가 -->
+  <h3 class="sub-block-title">① 버티컬 전문가 인플루언서</h3>
+  <p class="sub-block-sub">
+    피부과 전문의 · 에스테티션 · 패션 인사이더 · 에디터·바이어 · 인테리어 전문가 ·
+    엄마 · 작가(서브스택) 등 영역別 검증 전문가
+  </p>
+  <div class="img-block reveal">
+    <img src="../images/sajin2_vertical.jpg" alt="ShopMy Vertical Experts - Dermatologists, Estheticians, Editors & Buyers, etc." loading="lazy">
+  </div>
+
+  <!-- Sub-block B: 마이크로 인플루언서 -->
+  <h3 class="sub-block-title" style="margin-top:36px;">② 마이크로 인플루언서</h3>
+  <div class="img-block reveal">
+    <img src="../images/sajin2_micro.jpg" alt="ShopMy Featured Curators" loading="lazy">
+  </div>
+
+  <p class="src-cap">
+    출처: ShopMy 公式 큐레이션 카테고리·Featured Curators 페이지
+  </p>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="brand">CJ 미래경영연구원</div>
+  <div class="meta">
+    Market Watch v8 · ShopMy 핵심 경쟁력 리포트<br>
+    출처: ShopMy 公式 (shopmy.us)·Sacra Research '25·PRNewswire '25.10·Instagram Reels (인용)<br>
+    내부 임원 브리핑 목적 限定 사용
+  </div>
+</footer>
+
+<script>
+  // Scroll progress for status bar
+  const fill = document.getElementById('progressFill');
+  function updateProgress() {
+    const sc = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    fill.style.width = (max > 0 ? Math.min(100, (sc/max)*100) : 0) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive:true });
+  updateProgress();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Force-play videos on iOS
+  document.querySelectorAll('video').forEach(v => {
+    v.play().catch(() => {});
+  });
+</script>
+
+</body>
+</html>
